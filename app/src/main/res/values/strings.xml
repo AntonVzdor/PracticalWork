@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PracticalWork</string>
+
+    <string name="text_FullName">AntonVzdor</string>
+    <string name="text_title">Дневник программиста</string>
+
+    <string name="text_PhoneNumber">+79999999999</string>
+    <string name="text_Link">t.me/AntorVzdor</string>
+    <string name="text_Email">AntorVzdor@mail.ru</string>
+
 </resources>
