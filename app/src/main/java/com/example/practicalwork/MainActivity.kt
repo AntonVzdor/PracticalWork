@@ -33,11 +33,16 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background){
-                    ClickBehavior()
+                    ClickBehaviorScreen()
                 }
             }
         }
     }
+}
+
+@Composable
+fun ClickBehaviorScreen(){
+    ClickBehavior()
 }
 
 @Composable
@@ -65,6 +70,6 @@ fun ClickBehavior(){
 @Composable
 fun GreetingPreview() {
     PracticalWorkTheme {
-        ClickBehavior()
+        ClickBehaviorScreen()
     }
 }
