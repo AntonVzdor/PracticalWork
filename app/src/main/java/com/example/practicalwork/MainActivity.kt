@@ -16,8 +16,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,27 +47,66 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ClickBehaviorScreen(){
-    ClickBehavior()
+
+    var nextImage by remember { mutableIntStateOf(1) }
+    var imageNext by remember { mutableIntStateOf(0) }
+
+
+    when(nextImage) {
+        1 -> ClickBehavior(
+            text = stringResource(R.string.LemonTree),
+            paint = painterResource(R.drawable.lemon_tree),
+            imageClick = {
+                nextImage = 2
+                imageNext = (2..5).random()
+            }
+        )
+        2 -> ClickBehavior(
+            text = stringResource(R.string.Lemon),
+            paint = painterResource(R.drawable.lemon_squeeze),
+            imageClick = {
+                nextImage = 3
+            }
+        )
+        3 -> ClickBehavior(
+            text = stringResource(R.string.GlassOfLemonade),
+            paint = painterResource(R.drawable.lemon_drink),
+            imageClick = {
+                nextImage = 4
+            }
+        )
+        4 -> ClickBehavior(
+            text = stringResource(R.string.EmptyGlass),
+            paint = painterResource(R.drawable.lemon_restart),
+            imageClick = {
+                nextImage = 1
+            }
+        )
+    }
 }
 
 @Composable
-fun ClickBehavior(){
+fun ClickBehavior(
+    paint: Painter,
+    text: String,
+    imageClick: () -> Unit
+){
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
     ) {
         Button(
-            onClick = { /*TODO*/ },
+            onClick = imageClick,
             shape = RoundedCornerShape(15.dp)
         ){
-        Image(painter = painterResource(R.drawable.lemon_tree),
+        Image(painter = paint,
              contentDescription = null,
             modifier = Modifier
 
         )}
         Spacer(modifier = Modifier.height(15.dp))
-        Text(stringResource(R.string.LemonTree))
+        Text(text = text)
     }
 }
 
