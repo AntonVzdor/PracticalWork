@@ -53,36 +53,41 @@ fun ArtSpaceScreen(){
 
     var imageNextAndPast by remember { mutableIntStateOf(1) }
 
-when(imageNextAndPast) {
-    1 -> ArtSpace(
-        image = painterResource(R.drawable.image_1),
-        title = stringResource(R.string.titleOne),
-        text = stringResource(R.string.descriptionOne),
-        imageClickNext = { imageNextAndPast = 2 },
-        imageClickPast = { imageNextAndPast = 4 }
-    )
-    2 -> ArtSpace(
-        image = painterResource(R.drawable.image_2),
-        title = stringResource(R.string.titleTwo),
-        text = stringResource(R.string.descriptionTwo),
-        imageClickNext = { imageNextAndPast = 3 },
-        imageClickPast = { imageNextAndPast = 1 }
-    )
-    3 -> ArtSpace(
-        image = painterResource(R.drawable.image_3),
-        title = stringResource(R.string.titleThree),
-        text = stringResource(R.string.descriptionThree),
-        imageClickNext = { imageNextAndPast = 4 },
-        imageClickPast = { imageNextAndPast = 2 }
-    )
-    4 -> ArtSpace(
-        image = painterResource(R.drawable.image_4),
-        title = stringResource(R.string.titleFour),
-        text = stringResource(R.string.descriptionFour),
-        imageClickNext = { imageNextAndPast = 1 },
-        imageClickPast = { imageNextAndPast = 3 }
-    )
-}
+    Surface(modifier = Modifier) {
+        when (imageNextAndPast) {
+            1 -> ArtSpace(
+                image = painterResource(R.drawable.image_1),
+                title = stringResource(R.string.titleOne),
+                text = stringResource(R.string.descriptionOne),
+                imageClickNext = { imageNextAndPast = 2 },
+                imageClickPast = { imageNextAndPast = 4 }
+            )
+
+            2 -> ArtSpace(
+                image = painterResource(R.drawable.image_2),
+                title = stringResource(R.string.titleTwo),
+                text = stringResource(R.string.descriptionTwo),
+                imageClickNext = { imageNextAndPast = 3 },
+                imageClickPast = { imageNextAndPast = 1 }
+            )
+
+            3 -> ArtSpace(
+                image = painterResource(R.drawable.image_3),
+                title = stringResource(R.string.titleThree),
+                text = stringResource(R.string.descriptionThree),
+                imageClickNext = { imageNextAndPast = 4 },
+                imageClickPast = { imageNextAndPast = 2 }
+            )
+
+            4 -> ArtSpace(
+                image = painterResource(R.drawable.image_4),
+                title = stringResource(R.string.titleFour),
+                text = stringResource(R.string.descriptionFour),
+                imageClickNext = { imageNextAndPast = 1 },
+                imageClickPast = { imageNextAndPast = 3 }
+            )
+        }
+    }
 }
 
 @Composable
@@ -117,7 +122,7 @@ fun ArtSpace(
             Button(onClick = imageClickPast) {
                 Text(text = "Past")
             }
-            Spacer(Modifier.width(50.0.dp))
+            Spacer(Modifier.width(130.0.dp))
             Button(onClick = imageClickNext) {
                 Text(text = "Next")
             }
