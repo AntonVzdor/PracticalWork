@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">PracticalWork</string>
+
+    <string name="titleOne">Космос</string>
+    <string name="descriptionOne">Рандомный космос</string>
+
+    <string name="titleTwo">Водопа</string>
+    <string name="descriptionTwo">Рандомный водопад</string>
+
+    <string name="titleThree">Еще водопад</string>
+    <string name="descriptionThree">Еще раномный водопад</string>
+
+    <string name="titleFour">Дерево</string>
+    <string name="descriptionFour">Надо было свои фото вставить</string>
+
 </resources>
