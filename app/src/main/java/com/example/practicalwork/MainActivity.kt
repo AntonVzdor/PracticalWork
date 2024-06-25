@@ -31,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -93,7 +94,6 @@ fun ArtSpaceScreen(){
                 imageClickPast = { imageNextAndPast = 3 }
             )
         }
-
 }
 
 @Composable
@@ -152,12 +152,12 @@ fun ArtSpace(
                 Button(
                     onClick = imageClickPast,
                     colors = ButtonDefaults.buttonColors(
-                        contentColor = Color(0xff004D40),
                         containerColor = Color(0xff9ed6df)
                     )
                 ) {
                     Text(
                         text = "Past",
+                        color = Color(R.color.ButtonsText),
                         modifier = Modifier.padding(20.dp,1.dp))
                 }
 
@@ -166,11 +166,11 @@ fun ArtSpace(
                 Button(
                     onClick = imageClickNext,
                     colors = ButtonDefaults.buttonColors(
-                        contentColor = Color(0xff004D40),
                         containerColor = Color(0xff9ed6df)
                     )
                 ) { Text(
                     text = "Next",
+                    color = Color(R.color.ButtonsText),
                     modifier = Modifier.padding(20.dp,1.dp))
                 }
             }
