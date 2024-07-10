@@ -22,25 +22,19 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background){
-                    Greeting()
+
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(modifier: Modifier = Modifier) {
-    Text(
-        text = "Start",
-        modifier = modifier
-    )
-}
+
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     PracticalWorkTheme {
-        Greeting()
+
     }
 }
