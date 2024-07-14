@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -23,7 +23,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.practicalwork.data.Datasource
+import com.example.practicalwork.data.DatasourceOne
+import com.example.practicalwork.data.DataSourseTwo
 import com.example.practicalwork.model.Courses
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 
@@ -45,46 +46,96 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CoursesApp() {
-    CoursesList(
-        coursesList = Datasource().loadCourses(),
-    )
+    Row {
+        CoursesList(
+            coursesList = DatasourceOne().loadCourses(),
+        )
+        CoursesListTwo(
+            coursesList = DataSourseTwo().loadCourses(),
+        )
+    }
 }
 
 @Composable
 fun CoursesList(coursesList: List<Courses>, modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         items(coursesList) { courses ->
-            CoursesCard(
-                courses = courses,
-                modifier = Modifier.padding(8.dp)
-            )
+            Row {
+                CoursesCardOne(
+                    courses = courses,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
         }
     }
 }
 
 @Composable
-fun CoursesCard(
-    courses: Courses, modifier: Modifier = Modifier
-){
-    Card(modifier = modifier) {
-        Column {
-Image(painter = painterResource(id = courses.imageResourceId),
-    contentDescription = null,
-    modifier = Modifier
-        .fillMaxWidth()
-        .height(194.dp),
-    contentScale = ContentScale.Crop)
-            Text(
-                text = LocalContext.current.getString(courses.stringResourceId),
-                modifier = Modifier.padding(16.dp),
-                style = MaterialTheme.typography.headlineSmall
-            )
+fun CoursesListTwo(coursesList: List<Courses>, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+        items(coursesList) { courses ->
+                CoursesCardTwo(
+                    courses = courses,
+                    modifier = Modifier.padding(8.dp)
+                )
         }
+    }
 }
+
+@Composable
+fun CoursesCardOne(
+    courses: Courses, modifier: Modifier = Modifier
+) {
+    Card(modifier = modifier) {
+        Row {
+            Image(
+                painter = painterResource(id = courses.imageResourceId),
+                contentDescription = null,
+                modifier = Modifier
+
+                    .height(50.dp),
+                contentScale = ContentScale.Crop
+            )
+            Column {
+                Text(
+                    text = LocalContext.current.getString(courses.stringResourceId),
+                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Text(text = "text")
+            }
+        }
+    }
+}
+
+@Composable
+fun CoursesCardTwo(
+    courses: Courses, modifier: Modifier = Modifier
+) {
+    Card(modifier = modifier) {
+        Row {
+            Image(
+                painter = painterResource(id = courses.imageResourceId),
+                contentDescription = null,
+                modifier = Modifier
+
+                    .height(50.dp),
+                contentScale = ContentScale.Crop
+            )
+            Column {
+                Text(
+                    text = LocalContext.current.getString(courses.stringResourceId),
+                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Text(text = "text")
+            }
+        }
+    }
 }
 
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun GreetingPreview() {
     PracticalWorkTheme {
