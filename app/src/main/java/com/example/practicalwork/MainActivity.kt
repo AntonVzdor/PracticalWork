@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,8 +24,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.practicalwork.data.DatasourceOne
 import com.example.practicalwork.data.DataSourseTwo
+import com.example.practicalwork.data.DatasourceOne
 import com.example.practicalwork.model.Courses
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 
@@ -87,19 +88,19 @@ fun CoursesCardOne(
     courses: Courses, modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier) {
-        Row {
+        Row(modifier = modifier) {
             Image(
                 painter = painterResource(id = courses.imageResourceId),
                 contentDescription = null,
                 modifier = Modifier
-
-                    .height(50.dp),
+                    .fillMaxHeight()
+                    .height(70.dp),
                 contentScale = ContentScale.Crop
             )
-            Column {
+            Column(modifier = modifier) {
                 Text(
                     text = LocalContext.current.getString(courses.stringResourceId),
-                    modifier = Modifier.padding(16.dp),
+                    modifier = Modifier.padding(10.dp),
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Text(text = "text")
@@ -113,23 +114,23 @@ fun CoursesCardTwo(
     courses: Courses, modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier) {
-        Row {
+        Row(modifier = modifier) {
             Image(
                 painter = painterResource(id = courses.imageResourceId),
                 contentDescription = null,
                 modifier = Modifier
-
-                    .height(50.dp),
+                    .fillMaxHeight()
+                    .height(70.dp),
                 contentScale = ContentScale.Crop
             )
-            Column {
-                Text(
-                    text = LocalContext.current.getString(courses.stringResourceId),
-                    modifier = Modifier.padding(16.dp),
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(text = "text")
-            }
+                Column(modifier = modifier) {
+                    Text(
+                        text = LocalContext.current.getString(courses.stringResourceId),
+                        modifier = Modifier.padding(10.dp),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Text(text = "text")
+                }
         }
     }
 }
