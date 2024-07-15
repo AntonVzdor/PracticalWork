@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -19,7 +20,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -61,12 +61,10 @@ fun CoursesApp() {
 fun CoursesList(coursesList: List<Courses>, modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         items(coursesList) { courses ->
-            Row {
                 CoursesCardOne(
                     courses = courses,
                     modifier = Modifier.padding(8.dp)
                 )
-            }
         }
     }
 }
@@ -89,21 +87,25 @@ fun CoursesCardOne(
 ) {
     Card(modifier = modifier) {
         Row(modifier = modifier) {
+            Box {
             Image(
                 painter = painterResource(id = courses.imageResourceId),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxHeight()
-                    .height(70.dp),
-                contentScale = ContentScale.Crop
-            )
+                    .height(50.dp)
+            )}
             Column(modifier = modifier) {
                 Text(
                     text = LocalContext.current.getString(courses.stringResourceId),
-                    modifier = Modifier.padding(10.dp),
+                    modifier = Modifier.padding(5.dp),
                     style = MaterialTheme.typography.bodyMedium
                 )
-                Text(text = "text")
+                Text(
+                    text = courses.numberResourceId.toString(),
+                    modifier = Modifier.padding(5.dp),
+                    style = MaterialTheme.typography.labelMedium
+                )
             }
         }
     }
@@ -115,21 +117,25 @@ fun CoursesCardTwo(
 ) {
     Card(modifier = modifier) {
         Row(modifier = modifier) {
+            Box {
             Image(
                 painter = painterResource(id = courses.imageResourceId),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxHeight()
-                    .height(70.dp),
-                contentScale = ContentScale.Crop
-            )
+                    .height(50.dp)
+            )}
                 Column(modifier = modifier) {
                     Text(
                         text = LocalContext.current.getString(courses.stringResourceId),
-                        modifier = Modifier.padding(10.dp),
+                        modifier = Modifier.padding(5.dp),
                         style = MaterialTheme.typography.bodyMedium
                     )
-                    Text(text = "text")
+                    Text(
+                        text = courses.numberResourceId.toString(),
+                        modifier = Modifier.padding(5.dp),
+                        style = MaterialTheme.typography.labelMedium
+                    )
                 }
         }
     }
