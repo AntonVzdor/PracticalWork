@@ -5,27 +5,32 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.practicalwork.data.DataSourseTwo
-import com.example.practicalwork.data.DatasourceOne
+import com.example.practicalwork.data.DataSource
 import com.example.practicalwork.model.Courses
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 
@@ -38,7 +43,11 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background){
-                    CoursesApp()
+                    CoursesApp(modifier = Modifier.padding(
+                        start = dimensionResource(R.dimen.padding_small),
+                        top = dimensionResource(R.dimen.padding_small),
+                        end = dimensionResource(R.dimen.padding_small),
+                    ))
                 }
             }
         }
@@ -46,106 +55,70 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun CoursesApp() {
-    Row {
-        CoursesList(
-            coursesList = DatasourceOne().loadCourses(),
-        )
-        CoursesListTwo(
-            coursesList = DataSourseTwo().loadCourses(),
-        )
-    }
-}
-
-@Composable
-fun CoursesList(coursesList: List<Courses>, modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
-        items(coursesList) { courses ->
-                CoursesCardOne(
-                    courses = courses,
-                    modifier = Modifier.padding(8.dp)
-                )
+fun CoursesApp(modifier: Modifier = Modifier) {
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
+        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
+        modifier = modifier
+    ) {
+        items(DataSource.course) { courses ->
+            CoursesCard(courses)
         }
     }
 }
 
 @Composable
-fun CoursesListTwo(coursesList: List<Courses>, modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
-        items(coursesList) { courses ->
-                CoursesCardTwo(
-                    courses = courses,
-                    modifier = Modifier.padding(8.dp)
-                )
-        }
-    }
-}
-
-@Composable
-fun CoursesCardOne(
-    courses: Courses, modifier: Modifier = Modifier
-) {
-    Card(modifier = modifier) {
-        Row(modifier = modifier) {
-            Box {
-            Image(
-                painter = painterResource(id = courses.imageResourceId),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .height(50.dp)
-            )}
-            Column(modifier = modifier) {
-                Text(
-                    text = LocalContext.current.getString(courses.stringResourceId),
-                    modifier = Modifier.padding(5.dp),
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(
-                    text = courses.numberResourceId.toString(),
-                    modifier = Modifier.padding(5.dp),
-                    style = MaterialTheme.typography.labelMedium
-                )
+fun CoursesCard(courses: Courses, modifier: Modifier = Modifier) {
+    Card {
+        Row {
+                Box {
+                    Image(
+                        painter = painterResource(id = courses.imageResourceId),
+                        contentDescription = null,
+                        modifier = modifier
+                            .size(width = 68.dp, height = 68.dp)
+                            .aspectRatio(1f),
+                        contentScale = ContentScale.Crop
+                    )
+                }
+                Column {
+                    Text(
+                        text = stringResource(id = courses.stringResourceId),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(
+                            start = dimensionResource(R.dimen.padding_medium),
+                            top = dimensionResource(R.dimen.padding_medium),
+                            end = dimensionResource(R.dimen.padding_medium),
+                            bottom = dimensionResource(R.dimen.padding_small)
+                        )
+                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_grain),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .padding(start = dimensionResource(R.dimen.padding_medium))
+                        )
+                        Text(
+                            text = courses.numberResourceId.toString(),
+                            style = MaterialTheme.typography.labelMedium,
+                            modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_small))
+                        )
+                    }
+                }
             }
         }
     }
-}
-
-@Composable
-fun CoursesCardTwo(
-    courses: Courses, modifier: Modifier = Modifier
-) {
-    Card(modifier = modifier) {
-        Row(modifier = modifier) {
-            Box {
-            Image(
-                painter = painterResource(id = courses.imageResourceId),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .height(50.dp)
-            )}
-                Column(modifier = modifier) {
-                    Text(
-                        text = LocalContext.current.getString(courses.stringResourceId),
-                        modifier = Modifier.padding(5.dp),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Text(
-                        text = courses.numberResourceId.toString(),
-                        modifier = Modifier.padding(5.dp),
-                        style = MaterialTheme.typography.labelMedium
-                    )
-                }
-        }
-    }
-}
-
 
 @Preview
 @Composable
 fun GreetingPreview() {
     PracticalWorkTheme {
-        CoursesApp()
+        CoursesApp(modifier = Modifier.padding(
+            start = dimensionResource(R.dimen.padding_small),
+            top = dimensionResource(R.dimen.padding_small),
+            end = dimensionResource(R.dimen.padding_small),
+        ))
     }
 }
