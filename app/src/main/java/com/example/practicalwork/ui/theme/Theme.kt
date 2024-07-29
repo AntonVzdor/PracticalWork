@@ -80,7 +80,7 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
-fun SuperheroesTheme(
+fun PracticalWorkTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
