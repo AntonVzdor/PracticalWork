@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -91,8 +92,8 @@ fun HeroListItem(heroes: SuperHero, modifier: Modifier = Modifier) {
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .height(72.dp)
-                .clip(shape = Shapes.medium)
+                .padding(16.dp)
+                .sizeIn(minHeight = 75.dp)
         ) {
             Column(
                 modifier = Modifier.weight(1f)
