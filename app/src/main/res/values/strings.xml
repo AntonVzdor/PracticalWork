@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PracticalWork</string>
+
+    <string name="namePhoto">Название фото</string>
+    <string name="descriptionPhoto">Описание фото</string>
 </resources>
