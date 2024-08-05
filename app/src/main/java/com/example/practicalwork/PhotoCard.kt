@@ -1,4 +1,4 @@
-package com.example.practicalwork.ui.theme
+package com.example.practicalwork
 
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
