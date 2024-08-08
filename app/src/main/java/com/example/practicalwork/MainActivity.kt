@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun PhotoAlbum(modifier: Modifier = Modifier) {
+fun PhotoAlbum() {
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) {
