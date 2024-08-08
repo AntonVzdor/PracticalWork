@@ -31,12 +31,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun PhotoAlbum() {
+fun PhotoAlbum(modifier: Modifier = Modifier) {
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) {
-        val photo = DataSource.photo
-        PhotoCard(photo = photo, contentPadding = it)
+        PhotoCard()
     }
 }
 
