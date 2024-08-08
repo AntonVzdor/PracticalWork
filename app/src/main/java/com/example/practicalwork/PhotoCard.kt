@@ -6,8 +6,9 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -16,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.practicalwork.model.DataSource
 import com.example.practicalwork.model.PhotoAlbumData
@@ -28,12 +28,11 @@ fun PhotoCard(
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ){
-    LazyColumn(contentPadding = contentPadding) {
-        itemsIndexed(photo){
-            index, photo ->
-            PhotoCardItem(
-                photo = photo,
-                modifier = modifier)
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(1),
+        modifier = modifier) {
+        items(DataSource.photo) { photo ->
+            PhotoCardItem(photo)
         }
     }
 }
