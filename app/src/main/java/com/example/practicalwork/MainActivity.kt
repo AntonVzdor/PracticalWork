@@ -35,8 +35,8 @@ fun PhotoAlbum(modifier: Modifier = Modifier) {
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) {
-        val photos = DataSource.photo
-        PhotoCard(photos = photos, contentPadding = it)
+        val photo = DataSource.photo
+        PhotoCard(photo = photo, contentPadding = it)
     }
 }
 
