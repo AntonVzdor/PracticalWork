@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -53,7 +54,8 @@ fun PhotoCardItem(photo: PhotoAlbumData, modifier: Modifier  = Modifier){
             Image(
                 painter = painterResource(photo.imagePhoto),
                 contentDescription = null,
-                contentScale = ContentScale.Crop)
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.size(150.dp))
             Text(text = stringResource(id = photo.descriptionPhoto))
         }
     }
