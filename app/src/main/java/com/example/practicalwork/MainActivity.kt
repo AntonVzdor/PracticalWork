@@ -1,5 +1,6 @@
 package com.example.practicalwork
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,7 +12,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.practicalwork.model.DataSource
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,8 +30,9 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun PhotoAlbum(modifier: Modifier = Modifier) {
+fun PhotoAlbum() {
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) {

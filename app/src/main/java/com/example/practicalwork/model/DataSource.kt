@@ -6,37 +6,37 @@ object DataSource {
     val photo = listOf(
         PhotoAlbumData(
             namePhoto = R.string.namePhoto,
-            imagePhoto = R.drawable.hc0a6126,
+            imagePhoto = R.drawable.hc0a9824,
             descriptionPhoto = R.string.descriptionPhoto
         ),
         PhotoAlbumData(
             namePhoto = R.string.namePhoto,
-            imagePhoto = R.drawable.hc0a6134,
+            imagePhoto = R.drawable.hc0a9869,
             descriptionPhoto = R.string.descriptionPhoto
     ) ,
         PhotoAlbumData(
             namePhoto = R.string.namePhoto,
-            imagePhoto = R.drawable.hc0a6139,
+            imagePhoto = R.drawable.hc0a9873,
             descriptionPhoto = R.string.descriptionPhoto
         ),
         PhotoAlbumData(
             namePhoto = R.string.namePhoto,
-            imagePhoto = R.drawable.hc0a6158,
+            imagePhoto = R.drawable.hc0a9881,
             descriptionPhoto = R.string.descriptionPhoto
         ),
         PhotoAlbumData(
             namePhoto = R.string.namePhoto,
-            imagePhoto = R.drawable.hc0a6126,
+            imagePhoto = R.drawable.hc0a9824,
             descriptionPhoto = R.string.descriptionPhoto
         ),
         PhotoAlbumData(
             namePhoto = R.string.namePhoto,
-            imagePhoto = R.drawable.hc0a6134,
+            imagePhoto = R.drawable.hc0a9869,
             descriptionPhoto = R.string.descriptionPhoto
         ),
         PhotoAlbumData(
             namePhoto = R.string.namePhoto,
-            imagePhoto = R.drawable.hc0a6139,
+            imagePhoto = R.drawable.hc0a9873,
             descriptionPhoto = R.string.descriptionPhoto
         )
     )
