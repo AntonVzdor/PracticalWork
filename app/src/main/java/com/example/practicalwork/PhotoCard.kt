@@ -3,6 +3,7 @@ package com.example.practicalwork
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -42,7 +43,7 @@ fun PhotoCard(
 fun PhotoCardItem(photo: PhotoAlbumData, modifier: Modifier  = Modifier){
     Card(
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-        modifier = modifier
+        modifier = modifier.padding(10.dp)
     ) {
         Column(
             modifier = modifier
@@ -55,13 +56,14 @@ fun PhotoCardItem(photo: PhotoAlbumData, modifier: Modifier  = Modifier){
             Image(
                 painter = painterResource(photo.imagePhoto),
                 contentDescription = null,
-                modifier = Modifier
+                modifier = modifier
                     .size(350.dp)
                     .fillMaxWidth())
-            Text(text = stringResource(id = photo.descriptionPhoto))
+            Text(
+                text = stringResource(id = photo.descriptionPhoto),
+                modifier = Modifier)
         }
     }
-    Spacer(modifier = Modifier.height(30.dp))
 }
 
 @Preview
