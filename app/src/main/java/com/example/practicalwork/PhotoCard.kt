@@ -41,27 +41,29 @@ fun PhotoCardItem(photo: PhotoAlbumData, modifier: Modifier  = Modifier){
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
         modifier = modifier.padding(5.dp)
     ) {
+
         Column(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(10.dp)
         ) {
-            Text(text = stringResource(photo.namePhoto))
+                Text(text = stringResource(photo.namePhoto))
 
-            Image(
-                painter = painterResource(photo.imagePhoto),
-                contentDescription = null,
-                modifier = modifier
-                    .fillMaxWidth()
-                    .height(200.dp),
-                contentScale = ContentScale.Crop
-            )
-            Text(
-                text = stringResource(id = photo.descriptionPhoto),
-                modifier = Modifier)
+                Image(
+                    painter = painterResource(photo.imagePhoto),
+                    contentDescription = null,
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .height(200.dp),
+                    contentScale = ContentScale.Crop
+                )
+                Text(
+                    text = stringResource(id = photo.descriptionPhoto),
+                    modifier = Modifier
+                )
+            }
         }
     }
-}
 
 @Preview
 @Composable
