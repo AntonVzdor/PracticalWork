@@ -36,7 +36,10 @@ fun PhotoCard(
 }
 
 @Composable
-fun PhotoCardItem(photo: PhotoAlbumData, modifier: Modifier  = Modifier){
+fun PhotoCardItem(
+    photo: PhotoAlbumData,
+    modifier: Modifier = Modifier
+){
     Card(
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
         modifier = modifier.padding(5.dp)
@@ -56,9 +59,10 @@ fun PhotoCardItem(photo: PhotoAlbumData, modifier: Modifier  = Modifier){
                     .height(200.dp),
                 contentScale = ContentScale.Crop
             )
-            Text(
-                text = stringResource(id = photo.descriptionPhoto),
-                modifier = Modifier)
+                Text(
+                    text = stringResource(id = photo.descriptionPhoto),
+                    modifier = Modifier
+                )
         }
     }
 }
