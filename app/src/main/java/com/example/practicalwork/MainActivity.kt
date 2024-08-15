@@ -34,9 +34,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun PhotoAlbum() {
     Scaffold(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        topBar = { TopBarApp() }
     ) {
-        PhotoCard()
+        PhotoCard(contentPadding = it)
     }
 }
 
