@@ -1,6 +1,16 @@
 package com.example.practicalwork.model
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import com.example.practicalwork.R
+
+
+
+data class PhotoAlbumData(
+    @StringRes val namePhoto: Int,
+    @DrawableRes val imagePhoto: Int,
+    @StringRes val descriptionPhoto: Int
+)
 
 object DataSource {
     val photo = listOf(

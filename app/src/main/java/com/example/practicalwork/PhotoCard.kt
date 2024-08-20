@@ -1,8 +1,10 @@
 package com.example.practicalwork
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -10,8 +12,13 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -31,41 +38,67 @@ fun PhotoCard(
         columns = GridCells.Fixed(1),
         modifier = modifier) {
         items(DataSource.photo) { photo ->
-            PhotoCardItem(photo)
+            PhotoCardItem(
+                photo)
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PhotoCardItem(photo: PhotoAlbumData, modifier: Modifier  = Modifier){
+fun PhotoCardItem(
+    photo: PhotoAlbumData,
+    modifier: Modifier  = Modifier
+){
+    var expanded by remember { mutableStateOf(false) }
     Card(
-
-        modifier = modifier.padding(5.dp)
+        onClick = {
+            expanded = !expanded
+        },
+        modifier = Modifier.padding(5.dp),
     ) {
-        Column(
-            modifier = modifier
-                .fillMaxWidth()
-                .padding(10.dp)
-        ) {
-
+            Column(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(10.dp)
+            ) {
                 Text(text = stringResource(photo.namePhoto))
-
                 Image(
                     painter = painterResource(photo.imagePhoto),
                     contentDescription = null,
                     modifier = modifier
-                        .fillMaxWidth()
+                        .fillMaxSize()
                         .height(200.dp),
                     contentScale = ContentScale.Crop
                 )
 
-                Text(
-                    text = stringResource(id = photo.descriptionPhoto),
-                    modifier = Modifier
-                )
+                if (expanded) {
+                    PhotoAnimate(
+                        photo.descriptionPhoto,
+                        modifier = Modifier.padding(
+                            start = 16.dp,
+                            top = 8.dp,
+                            bottom = 16.dp,
+                            end = 17.dp
+                        )
+                    )
+                }
+
             }
+
         }
     }
+
+@Composable
+fun PhotoAnimate(
+    @StringRes descriptionPhoto: Int,
+    modifier: Modifier = Modifier
+){
+    Text(
+        text = stringResource(descriptionPhoto),
+        modifier = modifier
+    )
+}
 
 @Preview
 @Composable
