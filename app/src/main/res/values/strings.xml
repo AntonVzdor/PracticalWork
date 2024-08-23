@@ -1,6 +1,33 @@
 <resources>
     <string name="app_name">PracticalWork</string>
 
-    <string name="namePhoto">Название фото</string>
-    <string name="descriptionPhoto">Описание фото</string>
+    <string name="namePhoto1">Если бы оно было</string>
+    <string name="descriptionPhoto1">Как буд-то я хоть раз делал описание к фото</string>
+
+    <string name="namePhoto2">Конечно тут его тоже нет</string>
+    <string name="descriptionPhoto2">Оисание для описания</string>
+
+    <string name="namePhoto3">Я даже не помню что за фото</string>
+    <string name="descriptionPhoto3">Со всем этим надо еще работать</string>
+
+    <string name="namePhoto4">Очередное название</string>
+    <string name="descriptionPhoto4">Очередное описание</string>
+
+    <string name="namePhoto5">Кошечка Шари</string>
+    <string name="descriptionPhoto5">Лучшая кошечка на свете</string>
+
+    <string name="namePhoto6">Еще какой-то название</string>
+    <string name="descriptionPhoto6">Еще какое-то описание</string>
+
+    <string name="namePhoto7">Это уже седьмое фото</string>
+    <string name="descriptionPhoto7">Тут по плану длинное описание, что бы было длинное описание. Ведь протестить надо все варианты.</string>
+
+    <string name="namePhoto8">Название</string>
+    <string name="descriptionPhoto8">Описание</string>
+
+    <string name="namePhoto9">Фото</string>
+    <string name="descriptionPhoto9">Фото для фото</string>
+
+    <string name="namePhoto10">Название фото</string>
+    <string name="descriptionPhoto10">Описание фото:Описание фото</string>
 </resources>

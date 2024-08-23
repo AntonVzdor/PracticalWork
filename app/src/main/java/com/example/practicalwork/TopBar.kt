@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -13,6 +14,7 @@ fun TopBarApp(modifier: Modifier = Modifier){
     CenterAlignedTopAppBar(
         title = { Text(
             text = "Фотоальбом",
-            style = MaterialTheme.typography.bodyMedium,) },
+            fontSize = 25.sp,
+            style = MaterialTheme.typography.labelLarge,) },
         modifier = modifier)
 }

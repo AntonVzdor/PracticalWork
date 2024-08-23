@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -54,6 +55,7 @@ fun PhotoCardItem(
     modifier: Modifier  = Modifier
 ){
     var expanded by remember { mutableStateOf(false) }
+
     Card(
         onClick = {
             expanded = !expanded
@@ -68,7 +70,15 @@ fun PhotoCardItem(
                     .fillMaxWidth()
                     .padding(10.dp)
             ) {
-                Text(text = stringResource(photo.namePhoto))
+                Text(
+                    text = stringResource(photo.namePhoto),
+                    modifier = Modifier.padding(
+                        start = 2.dp,
+                        end = 2.dp
+                    ))
+
+                Spacer(modifier = Modifier.height(5.dp))
+
                 Image(
                     painter = painterResource(photo.imagePhoto),
                     contentDescription = null,
@@ -78,6 +88,10 @@ fun PhotoCardItem(
                         .clip(RoundedCornerShape(6.dp)),
                     contentScale = ContentScale.Crop
                 )
+
+                Spacer(modifier = Modifier.height(5.dp))
+
+                Text(text = "Описание:")
 
                 if (expanded) {
                     PhotoAnimate(
