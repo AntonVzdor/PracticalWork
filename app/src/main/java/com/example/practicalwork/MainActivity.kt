@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
+import com.example.practicalwork.ui.theme.md_theme_light_error
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +36,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun PhotoAlbum() {
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .background(md_theme_light_error)
+            .fillMaxSize(),
         topBar = { TopBarApp() }
     ) {
         PhotoCard(contentPadding = it)
@@ -45,6 +49,14 @@ fun PhotoAlbum() {
 @Composable
 fun GreetingPreview() {
     PracticalWorkTheme {
+        PhotoAlbum()
+    }
+}
+
+@Preview
+@Composable
+fun WoofDarkThemePreview() {
+    PracticalWorkTheme(darkTheme = true) {
         PhotoAlbum()
     }
 }

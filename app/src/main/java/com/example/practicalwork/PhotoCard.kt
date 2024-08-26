@@ -2,6 +2,8 @@ package com.example.practicalwork
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -9,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -57,14 +60,20 @@ fun PhotoCardItem(
     var expanded by remember { mutableStateOf(false) }
 
     Card(
-        onClick = {
-            expanded = !expanded
-        },
+        modifier = Modifier
+            .padding(5.dp)
+            .clickable(
+                interactionSource = MutableInteractionSource(),
+                indication = null,
+                onClick = {
+                    expanded = !expanded
+                }
+            ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 2.dp
-        ),
-        modifier = Modifier.padding(5.dp),
-    ) {
+        )
+    )
+    {
             Column(
                 modifier = modifier
                     .fillMaxWidth()
