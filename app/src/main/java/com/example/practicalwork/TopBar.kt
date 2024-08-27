@@ -6,6 +6,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -16,5 +18,7 @@ fun TopBarApp(modifier: Modifier = Modifier){
             text = "Фотоальбом",
             fontSize = 25.sp,
             style = MaterialTheme.typography.labelLarge) },
-        modifier = modifier)
+        modifier = modifier
+            .shadow(10.dp)
+    )
 }

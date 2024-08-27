@@ -133,7 +133,6 @@ fun PhotoAnimate(
     Text(
         text = stringResource(descriptionPhoto),
         modifier = modifier,
-        style = MaterialTheme.typography.displayMedium,
         fontSize = 15.sp
     )
 }
