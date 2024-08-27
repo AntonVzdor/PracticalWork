@@ -11,14 +11,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -32,6 +31,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.practicalwork.model.DataSource
 import com.example.practicalwork.model.PhotoAlbumData
 
@@ -51,7 +51,6 @@ fun PhotoCard(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PhotoCardItem(
     photo: PhotoAlbumData,
@@ -60,7 +59,7 @@ fun PhotoCardItem(
     var expanded by remember { mutableStateOf(false) }
 
     Card(
-        modifier = Modifier
+        modifier = modifier
             .padding(5.dp)
             .clickable(
                 interactionSource = MutableInteractionSource(),
@@ -75,16 +74,19 @@ fun PhotoCardItem(
     )
     {
             Column(
-                modifier = modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(10.dp)
             ) {
                 Text(
                     text = stringResource(photo.namePhoto),
-                    modifier = Modifier.padding(
+                    modifier = Modifier
+                        .padding(
                         start = 2.dp,
                         end = 2.dp
-                    ))
+                    ),style = MaterialTheme.typography.labelLarge,
+                    fontSize = 17.sp
+                )
 
                 Spacer(modifier = Modifier.height(5.dp))
 
@@ -100,7 +102,11 @@ fun PhotoCardItem(
 
                 Spacer(modifier = Modifier.height(5.dp))
 
-                Text(text = "Описание:")
+                Text(
+                    text = "Описание:",
+                    style = MaterialTheme.typography.displayMedium,
+                    fontSize = 15.sp
+                    )
 
                 if (expanded) {
                     PhotoAnimate(
@@ -126,7 +132,9 @@ fun PhotoAnimate(
 ){
     Text(
         text = stringResource(descriptionPhoto),
-        modifier = modifier
+        modifier = modifier,
+        style = MaterialTheme.typography.displayMedium,
+        fontSize = 15.sp
     )
 }
 

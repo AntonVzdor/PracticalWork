@@ -15,6 +15,6 @@ fun TopBarApp(modifier: Modifier = Modifier){
         title = { Text(
             text = "Фотоальбом",
             fontSize = 25.sp,
-            style = MaterialTheme.typography.labelLarge,) },
+            style = MaterialTheme.typography.labelLarge) },
         modifier = modifier)
 }
