@@ -3,9 +3,6 @@ package com.example.practicalwork.data
 import com.example.practicalwork.R
 import com.example.practicalwork.model.Dessert
 
-/**
- * [Datasource] generates a list of [Dessert]
- */
 object Datasource {
     val dessertList = listOf(
         Dessert(R.drawable.cupcake, 5, 0),
