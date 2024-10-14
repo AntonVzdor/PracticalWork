@@ -370,7 +370,7 @@ private fun DessertsSoldInfo(dessertsSold: Int, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 fun MyDessertClickerAppPreview() {
-    DessertClickerTheme {
+    PracticalWorkTheme {
         DessertClickerApp(listOf(Dessert(R.drawable.cupcake, 5, 0)))
     }
 }
