@@ -1,7 +1,7 @@
 package com.example.practicalwork.data
 
 import com.example.practicalwork.R
-import com.example.practicalwork.model.Dessert
+
 
 object Datasource {
     val dessertList = listOf(
@@ -20,3 +20,5 @@ object Datasource {
         Dessert(R.drawable.oreo, 6000, 20000)
     )
 }
+
+data class Dessert(val imageId: Int, val price: Int, val startProductionAmount: Int)
