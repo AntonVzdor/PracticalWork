@@ -127,11 +127,11 @@ private fun DessertClickerApp(
     )
 }
 
+
 @Composable
 private fun DessertClickerApp(
     uiState: DessertUiState,
     onDessertClicked: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {
@@ -157,35 +157,6 @@ private fun DessertClickerApp(
     }
 }
 
-@Composable
-private fun AppBar(
-    onShareButtonClicked: () -> Unit,
-    modifier: Modifier = Modifier
-){
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.primary),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            text = stringResource(R.string.app_name),
-            modifier = Modifier.padding(start = 16.dp),
-            color = MaterialTheme.colorScheme.onPrimary,
-            style = MaterialTheme.typography.headlineMedium,
-        )
-        IconButton(
-            onClick = onShareButtonClicked,
-            modifier = Modifier.padding(end = 16.dp),
-        ) {
-            Icon(
-                imageVector = Icons.Filled.Share,
-                contentDescription = stringResource(R.string.share),
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-}
 
 @Composable
 fun DessertClickerScreen(
@@ -279,6 +250,36 @@ private fun DessertsSoldInfo(dessertsSold: Int, modifier: Modifier = Modifier) {
         )
     }
 }
+
+@Composable
+private fun AppBar(
+    onShareButtonClicked: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.primary),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = stringResource(R.string.app_name),
+            modifier = Modifier.padding(start = 16.dp),
+            color = MaterialTheme.colorScheme.onPrimary,
+            style = MaterialTheme.typography.headlineMedium,
+        )
+        IconButton(
+            onClick = onShareButtonClicked,
+            modifier = Modifier.padding(end = 16.dp),
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Share,
+                contentDescription = stringResource(R.string.share),
+                tint = MaterialTheme.colorScheme.onPrimary
+            )
+        }
+    }
 }
 
 @Preview
