@@ -126,21 +126,21 @@ private fun shareSoldDessertsInformation(intentContext: Context, dessertsSold: I
 
 @Composable
 private fun DessertClickerApp(
-    viewModel: DessertViewModel = viewModel()
+    viewModel: DessertViewModel
 ) {
     val uiState by viewModel.dessertUiState.collectAsState()
     DessertClickerApp(
         uiState = uiState,
-        onDessertClicked = viewModel::onDessertClicked
+        onDessertClicked = viewModel::onDessertClick
     )
 }
 
 @Composable
 private fun DessertClickerApp(
     uiState: DessertUiState,
-    onDessertClicked: () -> Unit
+    onDessertClicked: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
-
     Scaffold(
         topBar = {
             val intentContext = LocalContext.current
@@ -235,52 +235,55 @@ fun DessertClickerScreen(
 }
 
 @Composable
-fun TransactionInfo(
+private fun TransactionInfo(
     revenue: Int,
     dessertsSold: Int,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier.background(Color.White)) {
+    Column(
+        modifier = modifier
+            .background(Color.White)
+    ) {
         DessertsSoldInfo(dessertsSold)
         RevenueInfo(revenue)
     }
 }
 
 @Composable
-fun RevenueInfo(revenue: Int, modifier: Modifier = Modifier) {
+private fun RevenueInfo(revenue: Int, modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Text(
             text = stringResource(R.string.total_revenue),
-            style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.onSecondaryContainer
+            style = MaterialTheme.typography.headlineMedium
         )
         Text(
             text = "$${revenue}",
             textAlign = TextAlign.Right,
-            style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.onSecondaryContainer
+            style = MaterialTheme.typography.headlineMedium
         )
     }
 }
 
 @Composable
-fun DessertsSoldInfo(dessertsSold: Int, modifier: Modifier = Modifier) {
+private fun DessertsSoldInfo(dessertsSold: Int, modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Text(
             text = stringResource(R.string.dessert_sold),
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.onSecondaryContainer
+            style = MaterialTheme.typography.titleLarge
         )
         Text(
             text = dessertsSold.toString(),
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.onSecondaryContainer
+            style = MaterialTheme.typography.titleLarge
         )
     }
 }
@@ -290,5 +293,8 @@ fun DessertsSoldInfo(dessertsSold: Int, modifier: Modifier = Modifier) {
 @Composable
 fun MyDessertClickerAppPreview() {
     PracticalWorkTheme {
-        DessertClickerApp()
+        DessertClickerApp(
+            uiState = DessertUiState(),
+            onDessertClicked = {}
+        )
     }}
