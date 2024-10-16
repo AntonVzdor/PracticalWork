@@ -17,11 +17,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Share
@@ -29,7 +27,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -49,6 +46,7 @@ import androidx.core.content.ContextCompat
 import com.example.practicalwork.data.DessertUiState
 import com.example.practicalwork.model.DessertViewModel
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 private const val TAG = "MainActivity"
 
@@ -59,13 +57,7 @@ class MainActivity : ComponentActivity() {
         Log.d(TAG, "onCreate Called")
         setContent {
             PracticalWorkTheme {
-                Surface(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .statusBarsPadding(),
-                ) {
-                    DessertClickerApp()
-                }
+                DessertClickerApp()
             }
         }
     }
@@ -126,7 +118,7 @@ private fun shareSoldDessertsInformation(intentContext: Context, dessertsSold: I
 
 @Composable
 private fun DessertClickerApp(
-    viewModel: DessertViewModel
+    viewModel: DessertViewModel = viewModel()
 ) {
     val uiState by viewModel.dessertUiState.collectAsState()
     DessertClickerApp(
