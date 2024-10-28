@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:Suppress("UNCHECKED_CAST")
+
 package com.example.practicalwork.uisreen
 
 import androidx.compose.foundation.layout.padding
@@ -26,7 +28,6 @@ import com.example.practicalwork.R
 import com.example.practicalwork.datasource.DataSource
 import com.example.practicalwork.model.MenuItem
 import com.example.practicalwork.model.MenuItem.AccompanimentItem
-import com.example.practicalwork.ui.BaseMenuScreen
 
 @Composable
 fun AccompanimentMenuScreen(
