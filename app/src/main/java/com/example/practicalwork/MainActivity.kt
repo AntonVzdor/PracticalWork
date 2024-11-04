@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+//12
 @Composable
 fun Greeting(modifier: Modifier = Modifier) {
     Text(
