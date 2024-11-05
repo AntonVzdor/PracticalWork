@@ -1,4 +1,4 @@
-package com.example.practicalwork.uiFile
+package com.example.practicalwork.ui
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
@@ -49,6 +49,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.practicalwork.uiFile.SportsViewModel
 import com.example.practicalwork.R
 import com.example.practicalwork.data.LocalSportsDataProvider
 import com.example.practicalwork.model.Sport

@@ -8,10 +8,13 @@ import androidx.compose.material3.Surface
 import com.example.practicalwork.ui.SportsApp
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 
+/**
+ * Activity for Sports app
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        super.onCreate(savedInstanceState)
         setContent {
             PracticalWorkTheme {
                 Surface {
