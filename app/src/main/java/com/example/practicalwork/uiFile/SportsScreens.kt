@@ -1,4 +1,4 @@
-package com.example.practicalwork.ui
+package com.example.practicalwork.uiFile
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
@@ -50,38 +50,31 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.practicalwork.uiFile.SportsViewModel
 import com.example.practicalwork.R
 import com.example.practicalwork.data.LocalSportsDataProvider
 import com.example.practicalwork.model.Sport
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 import com.example.practicalwork.util.SportsContentType
 
-/**
- * Main composable that serves as container
- * which displays content according to [uiState] and [windowSize]
- */
 @Composable
 fun SportsApp(
     windowSize: WindowWidthSizeClass,
-    modifier: Modifier = Modifier,
     onBackPressed: () -> Unit
 ) {
     val viewModel: SportsViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
-    val contentType: SportsContentType
 
-    when(windowSize){
+    val contentType: SportsContentType = when(windowSize){
         WindowWidthSizeClass.Compact -> {
-            contentType = SportsContentType.ListOnly
+            SportsContentType.ListOnly
         }
         WindowWidthSizeClass.Medium -> {
-            contentType = SportsContentType.ListOnly
+            SportsContentType.ListOnly
         }
         WindowWidthSizeClass.Expanded -> {
-            contentType = SportsContentType.ListAndDetail
+            SportsContentType.ListAndDetail
         } else -> {
-            contentType = SportsContentType.ListOnly
+            SportsContentType.ListOnly
         }
     }
 

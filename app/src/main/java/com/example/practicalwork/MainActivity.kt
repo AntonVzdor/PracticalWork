@@ -9,10 +9,9 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.practicalwork.ui.SportsApp
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
+import com.example.practicalwork.uiFile.SportsApp
 
 /**
  * Activity for Sports app
@@ -24,7 +23,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PracticalWorkTheme {
-                    val layoutDirection = LocalLayoutDirection.current
                 Surface {
                     val windowSize = calculateWindowSizeClass( this )
                     SportsApp(
