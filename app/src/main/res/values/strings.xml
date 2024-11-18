@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">PracticalWork</string>
+    <string name="app_name">Москва: мой город!</string>
+
+    //заголовки
+    <string name="coffee">кофе</string>
+    <string name="parks">парки</string>
+    <string name="restaurants">рестораны</string>
+    <string name="cinemas">кинотеатры</string>
+
+    //кофе
+    <string name="ReallyCoffee">Правда кофе</string>
+    <string name="OnePriceCoffee">OnePriceCoffe</string>
+    <string name="ChocolateMaker">Шоколадница</string>
+    <string name="CoffeeFix">Coffee Fix</string>
+
+    //парки
+    <string name="GorkyPark">парк Горького</string>
+    <string name="BotanicalGarden">Ботанический сад</string>
+    <string name="SviblovoPark">парк Свиблово</string>
+    <string name="Izmailovo">Измайлово</string>
+
+    //рестораны
+    <string name="TastyAndPoint">Вкусно и точка</string>
+    <string name="Murakami">Мураками</string>
+    <string name="BurgerHeroes">Burger Heroes</string>
+    <string name="Yakitoria">Якитория</string>
+
+    //кинотеатры
+    <string name="FiveStars">Пять звезд</string>
+    <string name="Space">Космос</string>
+    <string name="MovieHour">Час кино</string>
+    <string name="Saturn">Сатурн</string>
+
 </resources>
