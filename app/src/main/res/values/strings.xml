@@ -31,4 +31,25 @@
     <string name="MovieHour">Час кино</string>
     <string name="Saturn">Сатурн</string>
 
+    //описание
+    <string name="description1">описание 1</string>
+    <string name="description2">описание 2</string>
+    <string name="description3">описание 3</string>
+    <string name="description4">описание 4</string>
+
+    <string name="description5">описание 5</string>
+    <string name="description6">описание 6</string>
+    <string name="description7">описание 7</string>
+    <string name="description8">описание 8</string>
+
+    <string name="description9">описание 9</string>
+    <string name="description10">описание 10</string>
+    <string name="description11">описание 11</string>
+    <string name="description12">описание 12</string>
+
+    <string name="description13">описание 13</string>
+    <string name="description14">описание 14</string>
+    <string name="description15">описание 15</string>
+    <string name="description16">описание 16</string>
+
 </resources>
