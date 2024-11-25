@@ -2,6 +2,7 @@ package com.example.practicalwork.Screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -75,8 +76,17 @@ fun RecommendationScreenItem(
 }
 
 @Composable
-fun RecommendationDetail(){
-
+fun RecommendationDetail(
+    choiceRecommendation: RecommendationData,
+    modifier: Modifier = Modifier
+){
+    Column {
+        Text(text = stringResource(choiceRecommendation.recommendationId))
+        Image(
+            painter = painterResource(choiceRecommendation.imageId),
+            contentDescription = null)
+        Text(text = stringResource(choiceRecommendation.descriptionId))
+    }
 }
 
 @Preview
@@ -91,5 +101,7 @@ fun PreviewRecommendationScreen(){
 @Preview
 @Composable
 fun PreviewRecommendationDetail(){
-    RecommendationDetail()
+    RecommendationDetail(
+        choiceRecommendation = choiceRecommendation
+    )
 }
