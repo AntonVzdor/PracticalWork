@@ -6,7 +6,7 @@ import com.example.practicalwork.R
 object CategorySourceList{
     val defaultCategory = getCategoryData()[0]
 
-    private fun getCategoryData(): List<CategoryData>{
+    fun getCategoryData(): List<CategoryData>{
         return listOf(
             CategoryData(
                 id = 1,

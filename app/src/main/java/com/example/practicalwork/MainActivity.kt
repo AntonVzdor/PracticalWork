@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.practicalwork.Data.CategoryData
+import com.example.practicalwork.Model.CategorySourceList
+import com.example.practicalwork.Screen.CategoryScreen
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,25 +25,11 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background){
-                    Greeting()
+                   CategoryScreen(
+                       cats = CategorySourceList.getCategoryData(),
+                       onClick = {})
                 }
             }
         }
-    }
-}
-//13
-@Composable
-fun Greeting(modifier: Modifier = Modifier) {
-    Text(
-        text = "Start",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PracticalWorkTheme {
-        Greeting()
     }
 }
