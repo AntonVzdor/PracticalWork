@@ -6,24 +6,28 @@ import com.example.practicalwork.R
 object CoffeeRecommendationSourceList{
     val defaultRecommendation = getRecommendationData()[0]
 
-    private fun getRecommendationData(): List<RecommendationData>{
+    fun getRecommendationData(): List<RecommendationData>{
         return listOf(
             RecommendationData(
+                id = 1,
                 recommendationId = R.string.ReallyCoffee,
                 descriptionId = R.string.description1,
                 imageId =  R.drawable.ic_launcher_foreground
             ),
             RecommendationData(
+                id = 2,
                 recommendationId = R.string.OnePriceCoffee,
                 descriptionId = R.string.description2,
                 imageId =  R.drawable.ic_launcher_foreground
             ),
             RecommendationData(
+                id = 3,
                 recommendationId = R.string.ChocolateMaker,
                 descriptionId = R.string.description3,
                 imageId =  R.drawable.ic_launcher_foreground
             ),
             RecommendationData(
+                id = 4,
                 recommendationId = R.string.CoffeeFix,
                 descriptionId = R.string.description4,
                 imageId =  R.drawable.ic_launcher_foreground
@@ -32,7 +36,7 @@ object CoffeeRecommendationSourceList{
     }
 }
 
-object ParksRecommendationSourceList{
+/*object ParksRecommendationSourceList{
     val defaultRecommendation = getRecommendationData()[0]
 
     private fun getRecommendationData(): List<RecommendationData>{
@@ -118,3 +122,4 @@ object CinemasRecommendationSourceList{
         )
     }
 }
+*/
