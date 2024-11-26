@@ -80,12 +80,22 @@ fun RecommendationDetail(
     choiceRecommendation: RecommendationData,
     modifier: Modifier = Modifier
 ){
-    Column {
-        Text(text = stringResource(choiceRecommendation.recommendationId))
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+            .fillMaxSize()
+    ) {
+        Text(
+            text = stringResource(choiceRecommendation.recommendationId),
+            modifier = modifier.weight(0.5f).padding(top = 150.dp))
         Image(
             painter = painterResource(choiceRecommendation.imageId),
-            contentDescription = null)
-        Text(text = stringResource(choiceRecommendation.descriptionId))
+            contentDescription = null,
+            modifier = modifier.weight(1f))
+        Text(
+            text = stringResource(choiceRecommendation.descriptionId),
+            modifier = modifier.weight(1f))
     }
 }
 
@@ -102,6 +112,6 @@ fun PreviewRecommendationScreen(){
 @Composable
 fun PreviewRecommendationDetail(){
     RecommendationDetail(
-        choiceRecommendation = choiceRecommendation
+        choiceRecommendation = CoffeeRecommendationSourceList.defaultRecommendation
     )
 }
