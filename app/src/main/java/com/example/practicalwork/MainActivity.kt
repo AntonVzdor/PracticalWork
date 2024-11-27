@@ -7,12 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.practicalwork.Data.CategoryData
-import com.example.practicalwork.Model.CategorySourceList
 import com.example.practicalwork.Screen.CategoryScreen
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 
@@ -25,9 +20,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background){
-                   CategoryScreen(
-                       cats = CategorySourceList.getCategoryData(),
-                       onClick = {})
+                   CategoryScreen( )
                 }
             }
         }

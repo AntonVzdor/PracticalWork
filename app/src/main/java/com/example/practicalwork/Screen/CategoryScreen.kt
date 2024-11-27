@@ -20,12 +20,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.practicalwork.Data.CategoryData
-import com.example.practicalwork.Model.CategorySourceList
+import com.example.practicalwork.Model.CategoryDataSource
 
 @Composable
 fun CategoryScreen(
-    cats: List<CategoryData>,
-    onClick: (CategoryData) -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues =PaddingValues(0.dp)
 ){
@@ -35,10 +33,9 @@ fun CategoryScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
-        items(cats, key = { category -> category.id }){ category ->
+        items(CategoryDataSource.category){ category ->
             CategoryScreenItem(
-                category = category,
-                onItemClick = onClick
+                category
             )
         }
     }
@@ -48,13 +45,12 @@ fun CategoryScreen(
 @Composable
 fun CategoryScreenItem(
     category: CategoryData,
-    onItemClick: (CategoryData) -> Unit,
     modifier: Modifier = Modifier
 ){
     Card(
         modifier = modifier
             .padding(15.dp),
-        onClick = {onItemClick(category)}
+        onClick = {(category)}
     ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -78,7 +74,6 @@ fun CategoryScreenItem(
 @Composable
 fun PreviewCategory(){
     CategoryScreen(
-        cats = CategorySourceList.getCategoryData(),
-        onClick = {}
+
     )
 }

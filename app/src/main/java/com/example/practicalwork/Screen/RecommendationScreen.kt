@@ -21,7 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.practicalwork.Data.RecommendationData
-import com.example.practicalwork.Model.CoffeeRecommendationSourceList
+import com.example.practicalwork.Model.RecommendationSourceList
 
 
 @Composable
@@ -103,7 +103,7 @@ fun RecommendationDetail(
 @Composable
 fun PreviewRecommendationScreen(){
     RecommendationScreen(
-        rec = CoffeeRecommendationSourceList.getRecommendationData(),
+        rec = RecommendationSourceList.getCoffeeData(),
         onClick = {}
     )
 }
@@ -112,6 +112,6 @@ fun PreviewRecommendationScreen(){
 @Composable
 fun PreviewRecommendationDetail(){
     RecommendationDetail(
-        choiceRecommendation = CoffeeRecommendationSourceList.defaultRecommendation
+        choiceRecommendation = RecommendationSourceList.defaultCoffeeCategory
     )
 }
