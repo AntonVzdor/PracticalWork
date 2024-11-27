@@ -27,7 +27,6 @@ import com.example.practicalwork.Model.RecommendationSourceList
 @Composable
 fun RecommendationScreen(
     rec: List<RecommendationData>,
-    onClick: (RecommendationData) -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ){
@@ -40,7 +39,6 @@ fun RecommendationScreen(
         items(rec, key = { recommendation -> recommendation.id }){ recommendation ->
             RecommendationScreenItem(
                 recommendation = recommendation,
-                onItemClick = onClick
             )
         }
         }
@@ -50,13 +48,11 @@ fun RecommendationScreen(
 @Composable
 fun RecommendationScreenItem(
     recommendation: RecommendationData,
-    onItemClick: (RecommendationData) -> Unit,
     modifier: Modifier = Modifier
 ){
     Card(
         modifier = modifier
-            .padding(15.dp),
-        onClick = {onItemClick(recommendation)}
+            .padding(15.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -75,7 +71,7 @@ fun RecommendationScreenItem(
     }
 }
 
-@Composable
+/*@Composable
 fun RecommendationDetail(
     choiceRecommendation: RecommendationData,
     modifier: Modifier = Modifier
@@ -97,21 +93,20 @@ fun RecommendationDetail(
             text = stringResource(choiceRecommendation.descriptionId),
             modifier = modifier.weight(1f))
     }
-}
+}*/
 
 @Preview
 @Composable
 fun PreviewRecommendationScreen(){
     RecommendationScreen(
-        rec = RecommendationSourceList.getCoffeeData(),
-        onClick = {}
+        rec = RecommendationSourceList.getCoffeeData()
     )
 }
 
-@Preview
+/*@Preview
 @Composable
 fun PreviewRecommendationDetail(){
     RecommendationDetail(
         choiceRecommendation = RecommendationSourceList.defaultCoffeeCategory
     )
-}
+}*/

@@ -25,6 +25,7 @@ import com.example.practicalwork.Model.CategoryDataSource
 @Composable
 fun CategoryScreen(
     modifier: Modifier = Modifier,
+    onClick: (CategoryData) -> Unit,
     contentPadding: PaddingValues =PaddingValues(0.dp)
 ){
     LazyColumn(
@@ -35,7 +36,8 @@ fun CategoryScreen(
     ) {
         items(CategoryDataSource.category){ category ->
             CategoryScreenItem(
-                category
+                category = category,
+                onClickItem = onClick
             )
         }
     }
@@ -44,13 +46,14 @@ fun CategoryScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryScreenItem(
+    onClickItem: (CategoryData) -> Unit,
     category: CategoryData,
     modifier: Modifier = Modifier
 ){
     Card(
         modifier = modifier
             .padding(15.dp),
-        onClick = {(category)}
+        onClick = {onClickItem(category)}
     ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -74,6 +77,6 @@ fun CategoryScreenItem(
 @Composable
 fun PreviewCategory(){
     CategoryScreen(
-
+        onClick = {}
     )
 }
