@@ -2,6 +2,7 @@ package com.example.practicalwork.Screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -68,7 +69,7 @@ fun RecommendationScreenItem(
     }
 }
 
-/*@Composable
+@Composable
 fun RecommendationDetail(
     choiceRecommendation: RecommendationData,
     modifier: Modifier = Modifier
@@ -90,7 +91,7 @@ fun RecommendationDetail(
             text = stringResource(choiceRecommendation.descriptionId),
             modifier = modifier.weight(1f))
     }
-}*/
+}
 
 @Preview
 @Composable
@@ -100,10 +101,10 @@ fun PreviewRecommendationScreen(){
     )
 }
 
-/*@Preview
+@Preview
 @Composable
 fun PreviewRecommendationDetail(){
     RecommendationDetail(
-        choiceRecommendation = RecommendationSourceList.defaultCoffeeCategory
+        choiceRecommendation = RecommendationSourceList.getCoffeeData().first()
     )
-}*/
+}

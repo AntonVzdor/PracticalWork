@@ -37,7 +37,7 @@ fun CategoryScreen(
         items(CategoryDataSource.category){ category ->
             CategoryScreenItem(
                 category = category,
-                onClick = { onClickItem }
+                onClick = { onClickItem(category) }
             )
         }
     }
