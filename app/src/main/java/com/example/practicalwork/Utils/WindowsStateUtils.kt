@@ -4,7 +4,7 @@ enum class WindowsStateUtils {
     ListScreen, ListEndDetailScreen
 }
 
-enum class MyCity {
+enum class MyCityNav {
     CATEGORY,
     RECOMMENDATION,
     DESCRIPTION

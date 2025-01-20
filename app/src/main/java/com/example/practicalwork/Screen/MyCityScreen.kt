@@ -1,43 +1,33 @@
 package com.example.practicalwork.Screen
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import com.example.practicalwork.Utils.MyCity
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.practicalwork.Data.CategoryData
-import com.example.practicalwork.Data.RecommendationData
+import androidx.navigation.compose.rememberNavController
 import com.example.practicalwork.Model.RecommendationSourceList
+import com.example.practicalwork.Utils.MyCityNav
 
 @Composable
 fun MyCityApp(){
-    Scaffold(
-    ) { innerPadding ->
+
+    val navController = rememberNavController()
+
     NavHost(
         navController = navController,
-        startDestination = MyCity.CATEGORY.name,
-        modifier = Modifier.padding(innerPadding)
+        startDestination = MyCityNav.CATEGORY.name,
     ){
-        composable(route = MyCity.CATEGORY.name){
+        composable(route = MyCityNav.CATEGORY.name){
             CategoryScreen(
-                onClick = {}
+                onClickItem = { navController.navigate(MyCityNav.RECOMMENDATION.name) }
             )
         }
-        composable(route = MyCity.RECOMMENDATION.name){
-            val context = LocalContext.current
+        composable(route = MyCityNav.RECOMMENDATION.name){
             RecommendationScreen(
                 rec = RecommendationSourceList.getCoffeeData()
             )
         }
-        /*composable(route = MyCity.DESCRIPTION.name){
-            val context = LocalContext.current
-            RecommendationDetail(
-                choiceRecommendation = RecommendationData()
-            )
-        }*/
+        composable(route = MyCityNav.DESCRIPTION.name) {
+
+        }
     }
-}
 }

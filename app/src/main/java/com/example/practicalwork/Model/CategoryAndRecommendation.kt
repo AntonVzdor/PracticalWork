@@ -32,11 +32,6 @@ object CategoryDataSource{
 
 object RecommendationSourceList{
 
-    val defaultCoffeeCategory = getCoffeeData()[0]
-    val defaultParcCategory = getParcData()[0]
-    val defaultRestaurantCategory = getRestuatantData()[0]
-    val defaultCinemaCategory = getCinemaData()[0]
-
     fun getCoffeeData(): List<RecommendationData>{
 
         val coffeeCategoryAndRecommendationData = listOf(
