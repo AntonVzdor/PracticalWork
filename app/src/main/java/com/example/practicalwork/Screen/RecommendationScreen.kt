@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,6 +28,7 @@ import com.example.practicalwork.Model.DataSource
 fun RecommendationScreen(
     rec: List<RecommendationData>,
     modifier: Modifier = Modifier,
+    onClickItem: (RecommendationData) -> Unit,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ){
     LazyColumn(
@@ -35,23 +37,27 @@ fun RecommendationScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        items(rec, key = { recommendation -> recommendation }){ recommendation ->
+        items(rec, key = { recommendation -> recommendation.id }){ recommendation ->
             RecommendationScreenItem(
                 recommendation = recommendation,
+                onClick = { onClickItem(recommendation) }
             )
         }
         }
     }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RecommendationScreenItem(
+    onClick: () -> Unit,
     recommendation: RecommendationData,
     modifier: Modifier = Modifier
 ){
     Card(
         modifier = modifier
-            .padding(15.dp)
-    ) {
+            .padding(15.dp),
+        onClick = onClick
+    ){
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = modifier
@@ -82,7 +88,9 @@ fun RecommendationDetail(
     ) {
         Text(
             text = stringResource(choiceRecommendation.recommendationName),
-            modifier = modifier.weight(0.5f).padding(top = 150.dp))
+            modifier = modifier
+                .weight(0.5f)
+                .padding(top = 150.dp))
         Image(
             painter = painterResource(choiceRecommendation.imageId),
             contentDescription = null,
@@ -96,9 +104,10 @@ fun RecommendationDetail(
 @Preview
 @Composable
 fun PreviewRecommendationScreen(){
-    RecommendationScreen(
-        rec = DataSource.recommendation
-    )
+        RecommendationScreen(
+            onClickItem = {},
+            rec = DataSource.recommendation.filter { it.categoryId == 1 }
+        )
 }
 
 @Preview

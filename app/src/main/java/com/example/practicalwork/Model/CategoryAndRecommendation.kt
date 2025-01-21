@@ -6,6 +6,7 @@ import com.example.practicalwork.R
 
 object DataSource{
     val category = listOf(
+        //категории
         CategoryData(
             id = 1,
             categoryName = R.string.coffee,
