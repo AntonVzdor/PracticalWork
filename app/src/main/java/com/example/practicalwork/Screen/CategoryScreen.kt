@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.practicalwork.Data.CategoryData
-import com.example.practicalwork.Model.CategoryDataSource
+import com.example.practicalwork.Model.DataSource
 
 @Composable
 fun CategoryScreen(
@@ -34,7 +34,7 @@ fun CategoryScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
-        items(CategoryDataSource.category){ category ->
+        items(DataSource.category){ category ->
             CategoryScreenItem(
                 category = category,
                 onClick = { onClickItem(category) }
@@ -65,7 +65,7 @@ fun CategoryScreenItem(
                     painter = painterResource(category.imageId),
                     contentDescription = null)
                     Text(
-                        text = stringResource(category.categoryId),
+                        text = stringResource(category.categoryName),
                         modifier = Modifier.padding(horizontal = 65.dp)
                     )
                 }

@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,12 +19,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.practicalwork.Data.RecommendationData
-import com.example.practicalwork.Model.RecommendationSourceList
+import com.example.practicalwork.Model.DataSource
 
 
 @Composable
 fun RecommendationScreen(
-    rec: List<RecommendationData>,
+    rec: RecommendationData?,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ){
@@ -62,7 +61,7 @@ fun RecommendationScreenItem(
                 painter = painterResource(recommendation.imageId),
                 contentDescription = null)
             Text(
-                text = stringResource(recommendation.recommendationId),
+                text = stringResource(recommendation.recommendationName),
                 modifier = Modifier.padding(horizontal = 65.dp)
             )
         }
@@ -81,14 +80,14 @@ fun RecommendationDetail(
             .fillMaxSize()
     ) {
         Text(
-            text = stringResource(choiceRecommendation.recommendationId),
+            text = stringResource(choiceRecommendation.recommendationName),
             modifier = modifier.weight(0.5f).padding(top = 150.dp))
         Image(
             painter = painterResource(choiceRecommendation.imageId),
             contentDescription = null,
             modifier = modifier.weight(1f))
         Text(
-            text = stringResource(choiceRecommendation.descriptionId),
+            text = stringResource(choiceRecommendation.description),
             modifier = modifier.weight(1f))
     }
 }
@@ -97,7 +96,7 @@ fun RecommendationDetail(
 @Composable
 fun PreviewRecommendationScreen(){
     RecommendationScreen(
-        rec = RecommendationSourceList.getCoffeeData()
+        rec = DataSource.recommendation
     )
 }
 
@@ -105,6 +104,6 @@ fun PreviewRecommendationScreen(){
 @Composable
 fun PreviewRecommendationDetail(){
     RecommendationDetail(
-        choiceRecommendation = RecommendationSourceList.getCoffeeData().first()
+        choiceRecommendation = DataSource.recommendation.first()
     )
 }
