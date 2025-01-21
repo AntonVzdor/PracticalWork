@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +25,7 @@ import com.example.practicalwork.Model.DataSource
 
 @Composable
 fun RecommendationScreen(
-    rec: RecommendationData?,
+    rec: List<RecommendationData>,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ){
@@ -34,7 +35,7 @@ fun RecommendationScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        items(rec, key = { recommendation -> recommendation.id }){ recommendation ->
+        items(rec, key = { recommendation -> recommendation }){ recommendation ->
             RecommendationScreenItem(
                 recommendation = recommendation,
             )
