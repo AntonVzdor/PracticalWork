@@ -80,3 +80,19 @@ fun PreviewCategory(){
         onClickItem = {}
     )
 }
+
+@Preview(showBackground = true, widthDp = 700)
+@Composable
+fun PreviewCategoryMedium(){
+    CategoryScreen(
+        onClickItem = {}
+    )
+}
+
+@Preview(showBackground = true, widthDp = 1000)
+@Composable
+fun PreviewCategoryBig(){
+    CategoryScreen(
+        onClickItem = {}
+    )
+}

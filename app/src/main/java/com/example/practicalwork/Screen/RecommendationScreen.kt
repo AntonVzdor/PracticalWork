@@ -110,9 +110,43 @@ fun PreviewRecommendationScreen(){
         )
 }
 
+@Preview(showBackground = true, widthDp = 700)
+@Composable
+fun PreviewRecommendationScreenMedium(){
+    RecommendationScreen(
+        onClickItem = {},
+        rec = DataSource.recommendation.filter { it.categoryId == 1 }
+    )
+}
+
+@Preview(showBackground = true, widthDp = 1000)
+@Composable
+fun PreviewRecommendationScreenBig(){
+    RecommendationScreen(
+        onClickItem = {},
+        rec = DataSource.recommendation.filter { it.categoryId == 1 }
+    )
+}
+
 @Preview
 @Composable
 fun PreviewRecommendationDetail(){
+    RecommendationDetail(
+        choiceRecommendation = DataSource.recommendation.first()
+    )
+}
+
+@Preview(showBackground = true, widthDp = 700)
+@Composable
+fun PreviewRecommendationDetailMedium(){
+    RecommendationDetail(
+        choiceRecommendation = DataSource.recommendation.first()
+    )
+}
+
+@Preview(showBackground = true, widthDp = 1000)
+@Composable
+fun PreviewRecommendationDetailBig(){
     RecommendationDetail(
         choiceRecommendation = DataSource.recommendation.first()
     )
