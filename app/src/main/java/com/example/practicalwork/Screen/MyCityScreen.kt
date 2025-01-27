@@ -17,6 +17,21 @@ fun MyCityApp(
 
     val navController = rememberNavController()
 
+    when(windowSize){
+        WindowWidthSizeClass.Compact->{
+
+        }
+        WindowWidthSizeClass.Medium->{
+
+        }
+        WindowWidthSizeClass.Expanded->{
+
+        }
+        else ->{
+
+        }
+    }
+
     NavHost(
         navController = navController,
         startDestination = MyCityNav.CATEGORY.name,
