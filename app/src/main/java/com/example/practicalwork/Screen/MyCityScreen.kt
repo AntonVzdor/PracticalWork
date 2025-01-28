@@ -1,6 +1,5 @@
 package com.example.practicalwork.Screen
 
-import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -11,26 +10,9 @@ import com.example.practicalwork.Model.DataSource
 import com.example.practicalwork.Utils.MyCityNav
 
 @Composable
-fun MyCityApp(
-    windowSize: WindowWidthSizeClass
-){
+fun MyCityApp(){
 
     val navController = rememberNavController()
-
-    when(windowSize){
-        WindowWidthSizeClass.Compact->{
-
-        }
-        WindowWidthSizeClass.Medium->{
-
-        }
-        WindowWidthSizeClass.Expanded->{
-
-        }
-        else ->{
-
-        }
-    }
 
     NavHost(
         navController = navController,
