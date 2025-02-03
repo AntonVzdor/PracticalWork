@@ -27,9 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background){
                     val windowSize = calculateWindowSizeClass(this)
-                    MyCityApp(
-                        windowSize = windowSize.widthSizeClass
-                    )
+                    MyCityApp()
                 }
             }
         }
@@ -40,8 +38,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ReplyAppCompactPreview() {
         Surface {
-            MyCityApp(
-                windowSize = WindowWidthSizeClass.Compact,
-            )
+            MyCityApp()
         }
 }
