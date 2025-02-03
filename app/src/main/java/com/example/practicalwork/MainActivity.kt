@@ -33,9 +33,7 @@ class MainActivity : ComponentActivity() {
                     val onClick: (CategoryData) -> Unit = { category ->
                         Log.d("MainActivity", "Clicked on: ${category.id}")
                     }
-                    AppScreen(
-                        windowSize = windowWidthSizeClass,
-                        onClick = onClick)
+                    MyCityApp()
                 }
             }
         }
