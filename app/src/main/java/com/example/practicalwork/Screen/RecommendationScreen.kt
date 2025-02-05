@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import com.example.practicalwork.Data.RecommendationData
 import com.example.practicalwork.Model.DataSource
 
-
 @Composable
 fun RecommendationScreen(
     rec: List<RecommendationData>,
