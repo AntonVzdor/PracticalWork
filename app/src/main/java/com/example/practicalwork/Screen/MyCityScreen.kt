@@ -1,19 +1,27 @@
 package com.example.practicalwork.Screen
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.practicalwork.MainActivity
 import com.example.practicalwork.Model.DataSource
 import com.example.practicalwork.Utils.MyCityNav
 
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
 fun MyCityApp(){
 
     val navController = rememberNavController()
+    val context = LocalContext.current
+    val windowSize = calculateWindowSizeClass(context as MainActivity)
 
     NavHost(
         navController = navController,
@@ -34,12 +42,24 @@ fun MyCityApp(){
         ) { backStackEntry ->
             val categoryId = backStackEntry.arguments?.getInt("categoryId")
             val recommendations = DataSource.getCategory(categoryId ?: 0)
-            RecommendationScreen(
-                rec = recommendations,
-                onClickItem = { recommendation ->
-                    navController.navigate(MyCityNav.DESCRIPTION.name + "/${recommendation.id}")
-                }
-            )
+            val choiceRecommendation = recommendations.firstOrNull() ?: return@composable
+
+            if (windowSize.widthSizeClass == WindowWidthSizeClass.Expanded){
+                RecommendationAndDetails(
+                    rec = recommendations,
+                    choiceRecommendation = choiceRecommendation,
+                    onClickItem = {
+
+                    }, contentPadding = PaddingValues()
+                )
+            } else {
+                RecommendationScreen(
+                    rec = recommendations,
+                    onClickItem = { recommendation ->
+                        navController.navigate(MyCityNav.DESCRIPTION.name + "/${recommendation.id}")
+                    }
+                )
+            }
         }
 
         composable(
