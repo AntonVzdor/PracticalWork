@@ -2,7 +2,6 @@ package com.example.practicalwork.Screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -75,32 +74,6 @@ fun RecommendationScreenItem(
     }
 }
 
-@Composable
-fun RecommendationDetail(
-    choiceRecommendation: RecommendationData,
-    modifier: Modifier = Modifier
-){
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
-            .fillMaxSize()
-    ) {
-        Text(
-            text = stringResource(choiceRecommendation.recommendationName),
-            modifier = modifier
-                .weight(0.5f)
-                .padding(top = 150.dp))
-        Image(
-            painter = painterResource(choiceRecommendation.imageId),
-            contentDescription = null,
-            modifier = modifier.weight(1f))
-        Text(
-            text = stringResource(choiceRecommendation.description),
-            modifier = modifier.weight(1f))
-    }
-}
-
 @Preview
 @Composable
 fun PreviewRecommendationScreen(){
@@ -125,29 +98,5 @@ fun PreviewRecommendationScreenBig(){
     RecommendationScreen(
         onClickItem = {},
         rec = DataSource.recommendation.filter { it.categoryId == 1 }
-    )
-}
-
-@Preview
-@Composable
-fun PreviewRecommendationDetail(){
-    RecommendationDetail(
-        choiceRecommendation = DataSource.recommendation.first()
-    )
-}
-
-@Preview(showBackground = true, widthDp = 700)
-@Composable
-fun PreviewRecommendationDetailMedium(){
-    RecommendationDetail(
-        choiceRecommendation = DataSource.recommendation.first()
-    )
-}
-
-@Preview(showBackground = true, widthDp = 1000)
-@Composable
-fun PreviewRecommendationDetailBig(){
-    RecommendationDetail(
-        choiceRecommendation = DataSource.recommendation.first()
     )
 }

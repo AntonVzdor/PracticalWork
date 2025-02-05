@@ -1,5 +1,6 @@
 package com.example.practicalwork.Screen
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -49,7 +50,8 @@ fun MyCityApp(){
             val recommendation = DataSource.getRecommendation(recommendationId ?: 0)
             if (recommendation != null) {
                 RecommendationDetail(
-                    choiceRecommendation = recommendation
+                    choiceRecommendation = recommendation,
+                    contentPadding = PaddingValues()
                 )
             }
         }
