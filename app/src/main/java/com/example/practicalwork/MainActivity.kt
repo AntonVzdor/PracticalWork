@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun ReplyAppCompactPreview() {
-        Surface {
-            MyCityApp()
-        }
+    Surface {
+        MyCityApp()
+    }
 }

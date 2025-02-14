@@ -10,22 +10,22 @@ object DataSource{
         CategoryData(
             id = 1,
             categoryName = R.string.coffee,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.coffee_cup_3113098
         ),
         CategoryData(
             id = 2,
             categoryName = R.string.parks,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.park_4814542
         ),
         CategoryData(
             id = 3,
             categoryName = R.string.restaurants,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.hamburger_3075977
         ),
         CategoryData(
             id = 4,
             categoryName = R.string.cinemas,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.cinema_2281341
         )
     )
 

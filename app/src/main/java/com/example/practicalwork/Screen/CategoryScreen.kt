@@ -16,6 +16,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -38,7 +39,7 @@ fun CategoryScreen(
         contentPadding = contentPadding,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+
     ) {
         items(DataSource.category){ category ->
             CategoryScreenItem(
@@ -71,7 +72,8 @@ fun CategoryScreenItem(
             ) {
                 Image(
                     painter = painterResource(category.imageId),
-                    contentDescription = null)
+                    contentDescription = null,
+                    Modifier.size(50.dp).padding(start = 15.dp))
                     Text(
                         text = stringResource(category.categoryName),
                         modifier = Modifier.padding(horizontal = 65.dp)
