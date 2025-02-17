@@ -1,5 +1,6 @@
 package com.example.practicalwork.Screen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,41 +24,42 @@ import com.example.practicalwork.Data.RecommendationData
 import com.example.practicalwork.Model.DataSource
 
 @Composable
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun RecommendationDetail(
     choiceRecommendation: RecommendationData,
     modifier: Modifier = Modifier
 ) {
-    Card(
-        modifier = modifier
-            .padding(25.dp),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(8.dp)
-    ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = modifier.padding(bottom = 16.dp).fillMaxSize()
+        Card(
+            modifier = modifier
+                .padding(25.dp),
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            elevation = CardDefaults.cardElevation(8.dp),
         ) {
-            Text(
-                text = stringResource(choiceRecommendation.recommendationName),
-                modifier = modifier
-                    .padding(top = 16.dp)
-            )
-            Image(
-                painter = painterResource(choiceRecommendation.imageId),
-                contentDescription = null,
-                modifier = modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-                    .padding(vertical = 8.dp)
-            )
-            Text(
-                text = stringResource(choiceRecommendation.description),
-                modifier = modifier.padding(top = 16.dp)
-            )
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = modifier.padding(bottom = 16.dp).fillMaxSize()
+            ) {
+                Text(
+                    text = stringResource(choiceRecommendation.recommendationName),
+                    modifier = modifier
+                        .padding(top = 16.dp)
+                )
+                Image(
+                    painter = painterResource(choiceRecommendation.imageId),
+                    contentDescription = null,
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .height(200.dp)
+                        .padding(vertical = 8.dp)
+                )
+                Text(
+                    text = stringResource(choiceRecommendation.description),
+                    modifier = modifier.padding(top = 16.dp)
+                )
+            }
         }
-    }
 }
 
 @Preview

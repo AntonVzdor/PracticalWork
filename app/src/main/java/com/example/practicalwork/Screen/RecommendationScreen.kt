@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -31,20 +32,20 @@ fun RecommendationScreen(
     onClickItem: (RecommendationData) -> Unit,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ){
-    LazyColumn(
-        contentPadding = contentPadding,
-        modifier = modifier,
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        items(rec, key = { recommendation -> recommendation.id }){ recommendation ->
-            RecommendationScreenItem(
-                recommendation = recommendation,
-                onClick = { onClickItem(recommendation) }
-            )
+        LazyColumn(
+            contentPadding = contentPadding,
+            modifier = modifier.fillMaxHeight(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            items(rec, key = { recommendation -> recommendation.id }) { recommendation ->
+                RecommendationScreenItem(
+                    recommendation = recommendation,
+                    onClick = { onClickItem(recommendation) }
+                )
+            }
         }
-        }
-    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,6 +58,7 @@ fun RecommendationScreenItem(
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 16.dp),
         modifier = modifier
+
             .padding(15.dp),
         onClick = onClick
     ){

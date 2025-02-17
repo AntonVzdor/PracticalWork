@@ -1,7 +1,9 @@
 package com.example.practicalwork.Screen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -11,6 +13,7 @@ import com.example.practicalwork.Data.RecommendationData
 import com.example.practicalwork.Model.DataSource
 
 @Composable
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun RecommendationAndDetails(
     rec: List<RecommendationData>,
     modifier: Modifier = Modifier,
@@ -20,7 +23,7 @@ fun RecommendationAndDetails(
 ){
     Row(
         modifier = modifier
-    ){
+    ) {
         RecommendationScreen(
             rec = rec,
             onClickItem = onClickItem,
@@ -31,11 +34,12 @@ fun RecommendationAndDetails(
                 .weight(2f)
                 .padding(horizontal = 5.dp)
                 .padding(top = 125.dp)
+                .fillMaxHeight()
         )
 
         RecommendationDetail(
             choiceRecommendation = choiceRecommendation,
-            modifier = Modifier.weight(3f)
+            modifier = Modifier.weight(3f).fillMaxHeight()
         )
     }
 }

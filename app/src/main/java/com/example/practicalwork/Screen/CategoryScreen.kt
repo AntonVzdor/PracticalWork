@@ -1,5 +1,6 @@
 package com.example.practicalwork.Screen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,21 +27,31 @@ import com.example.practicalwork.Data.CategoryData
 import com.example.practicalwork.Model.DataSource
 
 @Composable
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun CategoryScreen(
     onClickItem: (CategoryData) -> Unit,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
-    LazyColumn(
-        contentPadding = contentPadding,
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-
-        ) {
-        items(DataSource.category) { category ->
-            CategoryScreenItem(
-                category = category,
-                onClick = { onClickItem(category) }
+    Scaffold(
+        topBar = {
+            TopBarApp(
+                isShowingListPage = true,
+                onBackClick = {  },
             )
+        }
+    ) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = contentPadding,
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+            items(DataSource.category) { category ->
+                CategoryScreenItem(
+                    onClick = { onClickItem(category) },
+                    category = category,
+                )
+            }
         }
     }
 }
