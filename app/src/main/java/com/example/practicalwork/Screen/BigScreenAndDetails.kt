@@ -35,10 +35,7 @@ fun RecommendationAndDetails(
 
         RecommendationDetail(
             choiceRecommendation = choiceRecommendation,
-            modifier = Modifier.weight(3f),
-            contentPadding = PaddingValues(
-                top = contentPadding.calculateTopPadding(),
-            )
+            modifier = Modifier.weight(3f)
         )
     }
 }

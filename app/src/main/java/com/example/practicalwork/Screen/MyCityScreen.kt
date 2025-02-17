@@ -74,7 +74,7 @@ fun MyCityApp(){
             if (recommendation != null) {
                 RecommendationDetail(
                     choiceRecommendation = recommendation,
-                    contentPadding = PaddingValues()
+
                 )
             }
         }
