@@ -1,5 +1,6 @@
 package com.example.practicalwork.Model
 
+import android.content.Context
 import com.example.practicalwork.Data.CategoryData
 import com.example.practicalwork.Data.RecommendationData
 import com.example.practicalwork.R
@@ -152,8 +153,9 @@ object DataSource{
         return recommendation.filter { it.categoryId == category }
     }
 
-    fun getCategoryName(category: Int): List<CategoryData>{
-        return DataSource.category
+    fun getCategoryName(context: Context, categoryId: Int): String {
+        val category = DataSource.category.find { it.id == categoryId }
+        return category?.categoryName?.let { context.getString(it) } ?: "Неизвестная категория"
     }
 
     fun getRecommendation(recommendationId: Int): RecommendationData?{

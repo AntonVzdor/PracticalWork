@@ -1,10 +1,9 @@
 package com.example.practicalwork.ViewModel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
-import com.example.practicalwork.Data.CategoryData
 import com.example.practicalwork.Data.RecommendationData
 import com.example.practicalwork.Model.DataSource
-import com.example.practicalwork.Screen.TopBarApp
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -21,16 +20,16 @@ class RecommendationAndDetailsModel: ViewModel() {
 
     val uiState: StateFlow<DetailsUiState> = _uiState
 
-    fun updateRecommendation(categoryId: Int) {
+    fun updateRecommendation(context: Context, categoryId: Int) {
 
         val filterRecommendations = DataSource.getCategory(categoryId)
-        val categoryName = DataSource.getCategoryName(categoryId)
+        val categoryName = DataSource.getCategoryName(context, categoryId)
 
         _uiState.update {
             it.copy(
                 details = filterRecommendations,
                 currency = filterRecommendations.firstOrNull() ?: RecommendationData(0, 0, 0, 0, 0),
-                title = categoryName.toString(),
+                title = categoryName,
                 showBottomBack = true
             )
         }

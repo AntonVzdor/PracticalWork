@@ -1,8 +1,6 @@
 package com.example.practicalwork.Screen
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
@@ -13,7 +11,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -53,7 +50,7 @@ fun MyCityApp(){
                 CategoryScreen(
                     modifier = Modifier.padding(innerPadding),
                     onClickItem = { categoryData ->
-                        viewModel.updateRecommendation(categoryData.id)
+                        viewModel.updateRecommendation(context, categoryData.id)
                         navController.navigate(MyCityNav.RECOMMENDATION.name + "/${categoryData.id}")
                     }
                 )
