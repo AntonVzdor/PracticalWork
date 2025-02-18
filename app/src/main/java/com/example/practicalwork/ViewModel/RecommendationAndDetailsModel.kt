@@ -35,6 +35,15 @@ class RecommendationAndDetailsModel: ViewModel() {
         }
     }
 
+    fun resetToCategoryScreen() {
+        _uiState.update {
+            it.copy(
+                title = "MyCity",
+                showBottomBack = false
+            )
+        }
+    }
+
     fun updateCurrentDetails(selectedDetail: RecommendationData) {
         _uiState.update {
             it.copy(currency = selectedDetail)
