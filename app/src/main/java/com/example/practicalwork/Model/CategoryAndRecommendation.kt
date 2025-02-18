@@ -158,6 +158,11 @@ object DataSource{
         return category?.categoryName?.let { context.getString(it) } ?: "Неизвестная категория"
     }
 
+    fun getRecommendationName(context: Context, categoryId: Int): String {
+        val recommendation = DataSource.recommendation.find { it.id == categoryId }
+        return recommendation?.recommendationName?.let { context.getString(it) } ?: "Неизвестная категория"
+    }
+
     fun getRecommendation(recommendationId: Int): RecommendationData?{
         return recommendation.find { it.id == recommendationId }
     }

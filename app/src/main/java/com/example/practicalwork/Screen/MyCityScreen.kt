@@ -7,8 +7,11 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -31,6 +34,17 @@ fun MyCityApp(){
     val windowSize = calculateWindowSizeClass(context as MainActivity)
     val viewModel: RecommendationAndDetailsModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
+    val currentRoute = remember { mutableStateOf(MyCityNav.CATEGORY.name) }
+
+    LaunchedEffect(navController.currentBackStackEntry) {
+        navController.currentBackStackEntryFlow.collect { backStackEntry ->
+            val route = backStackEntry.destination.route ?: MyCityNav.CATEGORY.name
+            currentRoute.value = route
+            if (route == MyCityNav.CATEGORY.name) {
+                viewModel.resetToCategoryScreen()
+            }
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -73,6 +87,7 @@ fun MyCityApp(){
                         rec = uiState.details,
                         modifier = Modifier.padding(innerPadding),
                         onClickItem = { recommendation ->
+                            viewModel.updateRecommendationDetails(context, recommendation.id)
                             navController.navigate(MyCityNav.DESCRIPTION.name + "/${recommendation.id}")
                         }
                     )

@@ -35,6 +35,18 @@ class RecommendationAndDetailsModel: ViewModel() {
         }
     }
 
+    fun updateRecommendationDetails(context: Context, categoryId: Int){
+
+        val recommendationName = DataSource.getRecommendationName(context,categoryId)
+
+        _uiState.update {
+            it.copy(
+                title = recommendationName,
+                showBottomBack = true
+            )
+        }
+    }
+
     fun resetToCategoryScreen() {
         _uiState.update {
             it.copy(
