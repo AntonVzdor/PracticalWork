@@ -152,6 +152,10 @@ object DataSource{
         return recommendation.filter { it.categoryId == category }
     }
 
+    fun getCategoryName(category: Int): List<CategoryData>{
+        return DataSource.category
+    }
+
     fun getRecommendation(recommendationId: Int): RecommendationData?{
         return recommendation.find { it.id == recommendationId }
     }

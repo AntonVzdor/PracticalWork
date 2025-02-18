@@ -12,22 +12,23 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBarApp(
-    onBackClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    isShowingListPage: Boolean
+    title: String,
+    showBottomBack: Boolean,
+    navController: NavController,
+    modifier: Modifier = Modifier
 ){
     TopAppBar(
         title = {
-            Text("MyCity")
+            Text(text = title)
         },
-        navigationIcon = if (!isShowingListPage) {
+        navigationIcon = if (showBottomBack) {
             {
-                IconButton(onClick = onBackClick) {
+                IconButton(onClick = { navController.popBackStack() }) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = "Back"
@@ -41,14 +42,5 @@ fun TopBarApp(
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary
         )
-    )
-}
-
-@Preview
-@Composable
-fun TopBarAppPreview(){
-    TopBarApp(
-        onBackClick = {},
-        isShowingListPage = false
     )
 }

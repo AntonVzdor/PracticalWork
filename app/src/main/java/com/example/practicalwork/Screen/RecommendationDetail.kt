@@ -31,7 +31,7 @@ fun RecommendationDetail(
 ) {
         Card(
             modifier = modifier
-                .padding(25.dp),
+                .padding(15.dp),
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
             elevation = CardDefaults.cardElevation(8.dp),
@@ -39,24 +39,24 @@ fun RecommendationDetail(
             Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = modifier.padding(bottom = 16.dp).fillMaxSize()
+                modifier = modifier.padding(bottom = 10.dp).fillMaxSize()
             ) {
                 Text(
                     text = stringResource(choiceRecommendation.recommendationName),
                     modifier = modifier
-                        .padding(top = 16.dp)
+                        .padding(top = 70.dp)
                 )
                 Image(
                     painter = painterResource(choiceRecommendation.imageId),
                     contentDescription = null,
                     modifier = modifier
                         .fillMaxWidth()
-                        .height(200.dp)
-                        .padding(vertical = 8.dp)
+                        .height(150.dp)
+                        .padding(vertical = 10.dp)
                 )
                 Text(
                     text = stringResource(choiceRecommendation.description),
-                    modifier = modifier.padding(top = 16.dp)
+                    modifier = modifier.padding(top = 10.dp)
                 )
             }
         }

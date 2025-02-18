@@ -1,13 +1,19 @@
 package com.example.practicalwork.Screen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -29,53 +35,65 @@ fun MyCityApp(){
     val viewModel: RecommendationAndDetailsModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
 
-    NavHost(
-        navController = navController,
-        startDestination = MyCityNav.CATEGORY.name,
-    ){
-
-        composable(route = MyCityNav.CATEGORY.name){
-            CategoryScreen(
-                onClickItem = {categoryData ->
-                    viewModel.updateRecommendation(categoryData.id)
-                    navController.navigate(MyCityNav.RECOMMENDATION.name + "/${categoryData.id}")
-                }
+    Scaffold(
+        topBar = {
+            TopBarApp(
+                title = uiState.title,
+                navController = navController,
+                showBottomBack = uiState.showBottomBack
             )
         }
-
-        composable(
-            route = MyCityNav.RECOMMENDATION.name + "/{categoryId}",
-            arguments = listOf(navArgument("categoryId") { type = NavType.IntType })
+    ) { innerPadding ->
+        NavHost(
+            navController = navController,
+            startDestination = MyCityNav.CATEGORY.name,
         ) {
-            if (windowSize.widthSizeClass == WindowWidthSizeClass.Expanded){
-                RecommendationAndDetails(
-                    rec = uiState.details,
-                    choiceRecommendation = uiState.currency,
-                    onClickItem = { recommendations ->
-                        viewModel.updateCurrentDetails(recommendations)
-                    }, contentPadding = PaddingValues()
-                )
-            } else {
-                RecommendationScreen(
-                    rec = uiState.details,
-                    onClickItem = { recommendation ->
-                        navController.navigate(MyCityNav.DESCRIPTION.name + "/${recommendation.id}")
+
+            composable(route = MyCityNav.CATEGORY.name) {
+                CategoryScreen(
+                    modifier = Modifier.padding(innerPadding),
+                    onClickItem = { categoryData ->
+                        viewModel.updateRecommendation(categoryData.id)
+                        navController.navigate(MyCityNav.RECOMMENDATION.name + "/${categoryData.id}")
                     }
                 )
             }
-        }
 
-        composable(
-            route = MyCityNav.DESCRIPTION.name + "/{recommendationId}",
-            arguments = listOf(navArgument("recommendationId") { type = NavType.IntType })
-        ) { backStackEntry ->
-            val recommendationId = backStackEntry.arguments?.getInt("recommendationId")
-            val recommendation = DataSource.getRecommendation(recommendationId ?: 0)
-            if (recommendation != null) {
-                RecommendationDetail(
-                    choiceRecommendation = recommendation,
+            composable(
+                route = MyCityNav.RECOMMENDATION.name + "/{categoryId}",
+                arguments = listOf(navArgument("categoryId") { type = NavType.IntType })
+            ) {
+                if (windowSize.widthSizeClass == WindowWidthSizeClass.Expanded) {
+                    RecommendationAndDetails(
+                        rec = uiState.details,
+                        choiceRecommendation = uiState.currency,
+                        onClickItem = { recommendations ->
+                            viewModel.updateCurrentDetails(recommendations)
+                        }, contentPadding = PaddingValues(), modifier = Modifier.padding(innerPadding)
+                    )
+                } else {
+                    RecommendationScreen(
+                        rec = uiState.details,
+                        modifier = Modifier.padding(innerPadding),
+                        onClickItem = { recommendation ->
+                            navController.navigate(MyCityNav.DESCRIPTION.name + "/${recommendation.id}")
+                        }
+                    )
+                }
+            }
 
-                )
+            composable(
+                route = MyCityNav.DESCRIPTION.name + "/{recommendationId}",
+                arguments = listOf(navArgument("recommendationId") { type = NavType.IntType })
+            ) { backStackEntry ->
+                val recommendationId = backStackEntry.arguments?.getInt("recommendationId")
+                val recommendation = DataSource.getRecommendation(recommendationId ?: 0)
+                if (recommendation != null) {
+                    RecommendationDetail(
+                        choiceRecommendation = recommendation,
+                        Modifier.padding(innerPadding)
+                        )
+                }
             }
         }
     }

@@ -29,17 +29,10 @@ import com.example.practicalwork.Model.DataSource
 @Composable
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun CategoryScreen(
+    modifier: Modifier = Modifier,
     onClickItem: (CategoryData) -> Unit,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
-    Scaffold(
-        topBar = {
-            TopBarApp(
-                isShowingListPage = true,
-                onBackClick = {  },
-            )
-        }
-    ) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = contentPadding,
@@ -53,7 +46,6 @@ fun CategoryScreen(
                 )
             }
         }
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
