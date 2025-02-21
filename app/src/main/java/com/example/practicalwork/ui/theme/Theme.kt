@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 
 private val DarkColorScheme = darkColorScheme(
     primary = MoscowRed,
+    onPrimary = onMoscowRed,
     secondary = LightGray,
     tertiary = Gold,
     background = Black,
@@ -16,6 +17,7 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = MoscowRed,
+    onPrimary = onMoscowRed,
     secondary = DarkGray,
     tertiary = Gold,
     background = White,

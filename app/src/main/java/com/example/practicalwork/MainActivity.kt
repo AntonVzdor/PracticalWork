@@ -20,8 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PracticalWorkTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize()
                     )
                 {
                     MyCityApp()
