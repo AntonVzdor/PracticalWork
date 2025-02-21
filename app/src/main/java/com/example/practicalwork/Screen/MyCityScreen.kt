@@ -62,7 +62,6 @@ fun MyCityApp(){
 
             composable(route = MyCityNav.CATEGORY.name) {
                 CategoryScreen(
-                    modifier = Modifier.padding(innerPadding),
                     onClickItem = { categoryData ->
                         viewModel.updateRecommendation(context, categoryData.id)
                         navController.navigate(MyCityNav.RECOMMENDATION.name + "/${categoryData.id}")
