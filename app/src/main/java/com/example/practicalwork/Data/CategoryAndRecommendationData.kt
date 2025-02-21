@@ -2,6 +2,7 @@ package com.example.practicalwork.Data
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import com.example.practicalwork.R
 
 data class CategoryData(
     val id: Int,
@@ -16,4 +17,5 @@ data class RecommendationData(
     @StringRes val recommendationName: Int,
     @StringRes val description: Int,
     @DrawableRes val imageId: Int,
+    @DrawableRes val imageDetails: Int
 )

@@ -28,7 +28,7 @@ class RecommendationAndDetailsModel: ViewModel() {
         _uiState.update {
             it.copy(
                 details = filterRecommendations,
-                currency = filterRecommendations.firstOrNull() ?: RecommendationData(0, 0, 0, 0, 0),
+                currency = filterRecommendations.firstOrNull() ?: RecommendationData(0, 0, 0, 0, 0, 0),
                 title = categoryName,
                 showBottomBack = true
             )

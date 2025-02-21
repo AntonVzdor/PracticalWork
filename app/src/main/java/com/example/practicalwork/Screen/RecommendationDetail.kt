@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -47,11 +48,11 @@ fun RecommendationDetail(
                         .padding(top = 70.dp)
                 )
                 Image(
-                    painter = painterResource(choiceRecommendation.imageId),
+                    painter = painterResource(choiceRecommendation.imageDetails),
                     contentDescription = null,
                     modifier = modifier
                         .fillMaxWidth()
-                        .height(150.dp)
+                        .height(100.dp)
                         .padding(vertical = 10.dp)
                 )
                 Text(

@@ -37,28 +37,32 @@ object DataSource{
             categoryId = 1,
             recommendationName = R.string.ReallyCoffee,
             description = R.string.description1,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.images,
+            imageDetails = R.drawable._4adc1a0c6de46d3b8eb3ff48c2166d2
             ),
         RecommendationData(
             id = 2,
             categoryId = 1,
             recommendationName = R.string.OnePriceCoffee,
             description = R.string.description2,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.images__1_,
+            imageDetails = R.drawable._599810439
         ),
         RecommendationData(
             id = 3,
             categoryId = 1,
             recommendationName = R.string.ChocolateMaker,
             description = R.string.description3,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ec4bf1aae8888f751b54a655af80313b,
+            imageDetails = R.drawable.f33
         ),
         RecommendationData(
             id = 4,
             categoryId = 1,
             recommendationName = R.string.CoffeeFix,
             description = R.string.description4,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.images__2_,
+            imageDetails = R.drawable._e86lgve846xl11izqm5kpfun8d9m0qj
         ),
         //парки
         RecommendationData(
@@ -66,28 +70,32 @@ object DataSource{
             categoryId = 2,
             recommendationName = R.string.GorkyPark,
             description = R.string.description5,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 6,
             categoryId = 2,
             recommendationName = R.string.BotanicalGarden,
             description = R.string.description6,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 7,
             categoryId = 2,
             recommendationName = R.string.SviblovoPark,
             description = R.string.description7,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 8,
             categoryId = 2,
             recommendationName = R.string.Izmailovo,
             description = R.string.description8,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         //рестораны
         RecommendationData(
@@ -95,28 +103,32 @@ object DataSource{
             categoryId = 3,
             recommendationName = R.string.TastyAndPoint,
             description = R.string.description9,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 10,
             categoryId = 3,
             recommendationName = R.string.Murakami,
             description = R.string.description10,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 11,
             categoryId = 3,
             recommendationName = R.string.BurgerHeroes,
             description = R.string.description11,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 12,
             categoryId = 3,
             recommendationName = R.string.Yakitoria,
             description = R.string.description12,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         //кинотеатры
         RecommendationData(
@@ -124,28 +136,32 @@ object DataSource{
             categoryId = 4,
             recommendationName = R.string.FiveStars,
             description = R.string.description13,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 14,
             categoryId = 4,
             recommendationName = R.string.Space,
             description = R.string.description14,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 15,
             categoryId = 4,
             recommendationName = R.string.MovieHour,
             description = R.string.description15,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         ),
         RecommendationData(
             id = 16,
             categoryId = 4,
             recommendationName = R.string.Saturn,
             description = R.string.description16,
-            imageId = R.drawable.ic_launcher_foreground
+            imageId = R.drawable.ic_launcher_foreground,
+            imageDetails = R.drawable.ic_launcher_foreground
         )
     )
 
