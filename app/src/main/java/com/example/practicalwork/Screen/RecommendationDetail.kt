@@ -41,6 +41,7 @@ fun RecommendationDetail(
     modifier: Modifier = Modifier
 ) {
 
+    val nameForMap :String = stringResource(choiceRecommendation.recommendationName)
     val context = LocalContext.current
     val annotationText = buildAnnotatedString {
         append("Посмотрите эти места ")
@@ -95,8 +96,7 @@ fun RecommendationDetail(
                     modifier = Modifier
                         .clickable {
 
-                            val placeName = "Правда кофе Москва"
-                            val geoUri = Uri.parse("geo:0,0?q=${Uri.encode(placeName)}")
+                            val geoUri = Uri.parse("geo:0,0?q=${Uri.encode(nameForMap)}")
                             val intent = Intent(Intent.ACTION_VIEW, geoUri)
                             val chooser = Intent.createChooser(intent, "Выберите удобную карту")
                             context.startActivity(chooser)
