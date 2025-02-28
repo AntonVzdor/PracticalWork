@@ -114,7 +114,7 @@ fun PreviewRecommendationDetail(){
     RecommendationDetail(
         choiceRecommendation = DataSource.recommendation.first(),
 
-    )
+        )
 }
 
 @Preview(showBackground = true, device = "spec:width=673dp,height=841dp")
@@ -123,7 +123,7 @@ fun PreviewRecommendationDetailMedium(){
     RecommendationDetail(
         choiceRecommendation = DataSource.recommendation.first(),
 
-    )
+        )
 }
 
 @Preview(showBackground = true, device = "spec:width=1280dp,height=800dp,dpi=240")
@@ -132,5 +132,5 @@ fun PreviewRecommendationDetailBig(){
     RecommendationDetail(
         choiceRecommendation = DataSource.recommendation.first(),
 
-    )
+        )
 }
