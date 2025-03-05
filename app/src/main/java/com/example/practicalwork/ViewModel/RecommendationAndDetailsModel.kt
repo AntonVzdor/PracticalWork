@@ -1,15 +1,6 @@
 package com.example.practicalwork.ViewModel
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.withStyle
 import androidx.lifecycle.ViewModel
 import com.example.practicalwork.Data.RecommendationData
 import com.example.practicalwork.Model.DataSource

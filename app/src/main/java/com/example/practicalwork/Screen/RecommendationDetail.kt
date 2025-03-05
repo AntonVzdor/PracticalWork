@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.example.practicalwork.Data.RecommendationData
 import com.example.practicalwork.Model.DataSource
 
@@ -96,7 +97,7 @@ fun RecommendationDetail(
                     modifier = Modifier
                         .clickable {
 
-                            val geoUri = Uri.parse("geo:0,0?q=${Uri.encode(nameForMap)}")
+                            val geoUri = "geo:0,0?q=${Uri.encode(nameForMap)}".toUri()
                             val intent = Intent(Intent.ACTION_VIEW, geoUri)
                             val chooser = Intent.createChooser(intent, "Выберите удобную карту")
                             context.startActivity(chooser)
