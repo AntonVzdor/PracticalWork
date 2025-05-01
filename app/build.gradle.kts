@@ -55,7 +55,8 @@ android {
 dependencies {
     //network
     implementation(libs.kotlinx.serialization.json)
-
+    implementation(libs.retrofit)
+    implementation(libs.converter.scalars)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
