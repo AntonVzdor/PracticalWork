@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -52,6 +53,9 @@ android {
 }
 
 dependencies {
+    //network
+    implementation(libs.kotlinx.serialization.json)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
