@@ -56,7 +56,12 @@ dependencies {
     //network
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit)
-    implementation(libs.converter.scalars)
+    implementation(libs.okhttp)
+    implementation(libs.coil.compose)
+    implementation(libs.retrofit.serialization)
+
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
