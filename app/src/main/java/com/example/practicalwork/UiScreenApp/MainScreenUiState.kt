@@ -6,49 +6,54 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Scaffold
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import coil.request.ImageRequest
-import com.example.practicalwork.Data.AmphibiansDataClass
+import com.example.practicalwork.Data.AmphibianData
 import com.example.practicalwork.R
 import com.example.practicalwork.ViewModel.AmphibiansViewModel
+import com.example.practicalwork.ViewModel.UiState
 
 //вертикальный список
 @Composable
-fun ListOfAmphibians(
-    list: List<AmphibiansDataClass>,
-    viewModel: AmphibiansViewModel,
+fun AmphibiansScreen(viewModel: AmphibiansViewModel = viewModel()) {
+    Column {
+        TopBarOfAmphibians()
+        when (val state = viewModel.uiState) {
+            is UiState.Loading -> {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
+            }
 
-    ) {
+            is UiState.Success -> {
+                LazyColumn {
+                    items(state.data) { item ->
+                        ItemOfAmphibians(item)
+                    }
+                }
+            }
 
-    val uiState by viewModel.uiAmphibians.collectAsState()
-
-    Scaffold(
-        topBar = { TopBarOfAmphibians() }
-    ) { innerPadding ->
-    LazyColumn(modifier = Modifier.padding(paddingValues = innerPadding)) {
-        items(items = uiState, key = {item -> item.id}) { item ->
-            ItemOfAmphibians(item = item)
+            is UiState.Error -> {
+                Text(text = state.message)
+            }
         }
     }
-}
 }
 
 //элемент списка
 @Composable
 fun ItemOfAmphibians(
-    modifier: Modifier = Modifier,
-    item: AmphibiansDataClass
+    item: AmphibianData
 ){
-    Box(modifier = modifier
+    Box(modifier = Modifier
         .fillMaxSize()
         .padding(all = 15.dp)
         .background(color = colorResource(R.color.teal_200))
@@ -61,7 +66,7 @@ fun ItemOfAmphibians(
                 text = item.type
             )
             AsyncImage(
-                model = ImageRequest.Builder(context = LocalContext.current).data(item.imgUrl),
+                model = item.imgUrl,
                 contentDescription = item.name
             )
             Text(

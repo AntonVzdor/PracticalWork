@@ -10,3 +10,12 @@ data class AmphibiansDataClass(
     @SerialName("img_src") val imgUrl: String,
     val description: String
 )
+
+data class AmphibianData(
+    val name: String,
+    val type: String,
+    val imgUrl: String,
+    val description: String
+)
+
+

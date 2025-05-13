@@ -59,9 +59,11 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.coil.compose)
     implementation(libs.retrofit.serialization)
+    implementation(libs.gson.converter)
+    implementation(libs.lifecycle.viewmodel.compose)
 
-    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation(libs.converter.scalars)
+    implementation(libs.retrofit.serialization)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
