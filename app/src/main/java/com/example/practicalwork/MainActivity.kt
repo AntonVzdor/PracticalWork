@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.practicalwork.UiScreen.BoolList
+import com.example.practicalwork.UiScreen.BookCoverGrid
 import com.example.practicalwork.ui.theme.PracticalWorkTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,8 +19,9 @@ class MainActivity : ComponentActivity() {
             PracticalWorkTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background){
-                    BoolList()
+                    color = MaterialTheme.colorScheme.background)
+                {
+                    BookCoverGrid()
                 }
             }
         }
