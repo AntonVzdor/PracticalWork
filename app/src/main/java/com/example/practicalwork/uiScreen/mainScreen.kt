@@ -1,6 +1,7 @@
 package com.example.practicalwork.uiScreen
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,27 +15,31 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun MainScreenApp(){
 
     var query by remember { mutableStateOf("") }
 
-    Column {
         Scaffold(
             topBar = { TopBarMainScreen() }
         ) { innerPadding ->
-
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        ) {
         OutlinedTextField(
             value = query,
             onValueChange = { query = it },
             label = { Text("Enter departure airport") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(all = 10.dp)
         )
 
-            LazyColumn(modifier = Modifier
-                .padding(innerPadding)) {
-
+            LazyColumn {
                 items(15) {
                     InfoBlock(
                         "FCO",
@@ -45,7 +50,6 @@ fun MainScreenApp(){
                 }
             }
         }
-
     }
 }
 
