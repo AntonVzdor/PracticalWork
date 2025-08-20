@@ -1,7 +1,8 @@
 package com.example.practicalwork
 
 import com.example.practicalwork.data.AppDataBase
+import android.app.Application
 
-class AirportsApplication {
-    val dataBase: AppDataBase by lazy { AppDataBase.getDataBase(this) }
+class AirportsApplication : Application() {
+    val dataBase: AppDataBase by lazy { AppDataBase.getDatabase(this) }
 }
